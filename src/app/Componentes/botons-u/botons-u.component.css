@@ -1,0 +1,18 @@
+a{
+    text-decoration: none;
+    color:grey;
+    
+}
+button{
+    background-color:#06266F;
+    color: white;
+}
+input{
+    border-color: grey;
+}
+#vus{
+    background-color: white;
+}
+button:hover{
+    color: rgba(255,255,255,.4);
+}

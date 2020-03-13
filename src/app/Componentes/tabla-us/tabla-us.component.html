@@ -1,0 +1,96 @@
+<div class="container">
+
+    <table class="table text-light col ">
+        <thead>
+        <tr>
+            <!--titulos-->
+            <th style="width: 35%;">Nombre del Usuario  
+                    <span class="fa" style="margin-top: -2%;">&#xf106;</span>
+                    <span class="fa" style="margin-top: 2%;">&#xf107;</span>
+            </th>
+            <th class="" style="width: 25%;">RFC
+                <span class="fa" style="margin-top: -2%;">&#xf106;</span>
+                <span class="fa" style="margin-top: 2%;">&#xf107;</span>
+            </th>
+            <th class="" style="width: 25%;">Correo Electronico</th>
+            <th style="width: 25%; ">
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr  *ngFor="let item of Datos; let id = index">
+            <td>
+               {{item.name}}
+            </td>
+            <td>
+                {{item.rfc}}
+            </td>
+            <td>
+                {{item.email}}
+            </td>
+            <td>
+                <a href="#" (click) = "show(id)" class='fa'  style="margin-left:50% ;" >&#xf304;</a>
+                <span style="margin-right: 15%;">   
+                </span>
+                <a href="#" (click)="borrar(id)"  class='fa' >&#xf1f8;</a>
+            </td>
+        </tr>
+    </tbody>
+        <!--Datos-->
+       <!--  <tr>
+            <td>{{name}}</td>
+            <td>{{RFC}}</td>
+            <td>{{correo}}</td>
+            <td>
+                <a href="#" (click) = "show()" class='fa' style="margin-left:50% ;" >&#xf304;</a>
+                <span style="margin-right: 15%;">   
+                </span>
+                <a href="#" class='fa' >&#xf1f8;</a>
+            </td>
+           
+        </tr> -->
+       
+    </table>
+
+</div>
+
+    <!--Weas popup-->
+    
+    <!-- Creates the bootstrap modal where the image will appear -->
+    <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Nuevo Usuario</h4>
+                </div>
+                <!--Contenido-->
+                <div class="modal-body">
+                    <div class="coniner">
+                        <div class="form-group">
+                            <label >Usuario</label>
+                            <input type="text" value="{{name}}"  [(ngModel)]="name2"  class="form-control" id="usr">
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <label >RFC</label>
+                                <input type="text" [(ngModel)]="RFC1"  value="" class="form-control" id="usra">
+                            </div>
+                            <div class="col-sm-6">
+                                <label >Perfil</label>
+                                <select name="" class="form-control" id=""></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label >Correo Electronico</label>
+                            <input type="text" [(ngModel)]="correo2" value="{{correo}}" class="form-control" id="usrr">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest()" (click) = "hide()" >Cancelar</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "setData()" (click) = "hide()">Guardar</button>      
+                </div>
+            </div>
+        </div>
+    </div>
+    
