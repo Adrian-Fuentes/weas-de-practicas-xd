@@ -1,0 +1,79 @@
+<div class=" container">
+
+    <div class="input-group row container"  id="xd">
+        <input type="search"  class="form-control col-sm-3"  name="" id="busca">
+    <div class="input-group-append">
+      <input class="fa  input-group-text" id="vus" type="button" value="&#xf002;">
+    </div>
+    <a href="#"  class="fa col-sm-9" style="margin-top:1%;margin-right: -2%;">&#xf0b0;</a>
+    <button  class="btn  " style="float: right;" (click)="show()" >Nuevo Usuario</button>
+  </div>
+</div>
+
+<!-- Ventana de Dialogo -->
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel">Nuevo Usuario</h4>
+          </div>
+          <!--Contenido-->
+          <div class="modal-body">
+              <div class="coniner" >
+                    <form [formGroup]="form">
+                  
+                        <div class="form-group">
+                            <label >Usuario</label>
+                            <input type="text"  value=""   #name1 formControlName="name"  class="form-control" >
+                            <!--Aqui se ponen los errores xd-->
+                            <div *ngIf="form.controls['name'].invalid && (form.controls['name'].dirty || form.controls['name'].touched)" >
+                                <div *ngFor="let validation of mensaje_name.name" >
+                                    <div style="font-size: smaller !important;color:red" *ngIf="form.get('name').hasError(validation.type) && (form.get('name').dirty || form.get('name').touched)">
+                                        {{validation.message}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                            <label >RFC</label>
+                            <input type="text"   value="" formControlName="rfc" #RF class="form-control" id="cr">
+                            <!--Aqui se ponen los errores xdd-->
+                            <div *ngIf="form.controls['rfc'].invalid && (form.controls['rfc'].dirty || form.controls['rfc'].touched)" >
+                                <div *ngFor="let validation2 of mensaje_rfc.rfc" >
+                                    <div style="font-size: smaller !important;color:red" *ngIf="form.get('rfc').hasError(validation2.type) && (form.get('rfc').dirty || form.get('rfc').touched)">
+                                        {{validation2.message}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <label >Perfil</label>
+                            <select name="" class="form-control"  id="">
+                                <option value="" *ngFor="let item of dat1">{{item.nande}}</option>
+                            </select>
+                        </div>
+                        </div>
+                        <div class="form-group">
+                            <label >Correo Electronico</label>
+                            <input type="text"    value="" #EM  formControlName="email" class="form-control" id="crr">
+                            <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" >
+                                <div *ngFor="let validation3 of mensaje_email.email" >
+                                    <div style="font-size: smaller !important;color:red" *ngIf="form.get('email').hasError(validation3.type) && (form.get('email').dirty || form.get('email').touched)">
+                                        {{validation3.message}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+              </div>
+          </div>
+          <!--BOTONES al final xD-->
+          <div class="modal-footer">
+              <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest(EM,RF,name1)"  >Cancelar</button>
+              <button type="button" class="btn btn-dark" data-dismiss="modal" [disabled]="form.invalid" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
+          </div>
+      </div>
+  </div>
+</div>
+{{form.value | json}}
