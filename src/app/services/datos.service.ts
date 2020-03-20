@@ -9,7 +9,7 @@ export class DatosService {
   DatoCr: string;
   arr = [{id: 1, name: 'Miguel de la Torre Sifuentes ', rfc: '', email: 'legal@gdn.com'}];
   arr2: Array<object> = [];
-  pasaP: Array<object> = [{nande: 'Aprobado', Fecha: 'GDFN123654IO7'}];
+  pasaP  = [{id: 1 , nande: 'Aprobado', Fecha: 'GDFN123654IO7'}];
   ident: number;
   constructor() {
 

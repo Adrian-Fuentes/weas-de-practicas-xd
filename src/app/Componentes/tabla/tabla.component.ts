@@ -14,12 +14,18 @@ export class TablaComponent implements OnInit {
   Per: string;
   Per1: string;
   profiles: Array<object> = [];
+  datoss: any;
   constructor(public ElService: DatosService) { 
     this.Per = "Aprobado"
     this.profiles = this.ElService.pasaP;
   }
-  avr(){
+  avr(id:number){
     console.log("si pasa xd")
+    console.log(id);
+    this.datoss = this.ElService.pasaP.find(resul => resul.id === id+1);
+    console.log(this.datoss);
+    this.ElService.pasaP.splice(id,1);
+    
   }
   //MOSTRAR EL EDITADO
   show(){

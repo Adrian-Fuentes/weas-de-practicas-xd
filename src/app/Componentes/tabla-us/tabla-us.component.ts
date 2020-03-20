@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { BotonsUComponent } from '../botons-u/botons-u.component';
-
+import { FormGroup , FormBuilder, Validators } from "@angular/forms";
 
 
 
@@ -13,7 +13,9 @@ import { BotonsUComponent } from '../botons-u/botons-u.component';
 })
 export class TablaUsComponent implements OnInit {
   showModal: boolean;
-  name: string = "Miguel de la Torre Sifuentes"; 
+  name: string; 
+  rfc:any;
+  email:string;
   name2: string;
   correo: string = "legal@gdn.com" ;
   correo2: string;
@@ -30,26 +32,63 @@ export class TablaUsComponent implements OnInit {
   ];
   activa: boolean = false;
   wea1: string;
-  constructor(public dataservice: DatosService, public botons:BotonsUComponent) {
+  form1:FormGroup
+  mensaje_name:any;
+  mensaje_rfc:any;
+  mensaje_email:any;
+  constructor(public dataservice: DatosService, public botons:BotonsUComponent,private fb:FormBuilder) {
     // Se declara los valores del arr para activar el NgFor
     this.Datos = this.dataservice.arr;
     console.log(this.Datos);
-   
+    this.mensaje_name = {
+      'name': [
+        { type: 'required', message: 'El nombre es Requerido*' },
+        { type: 'minlength', message: 'Minimo 3 letras*'},
+        { type: 'pattern', message: 'Solo se aceptan letras*' }
+      ]}
+
+      this.mensaje_rfc = {
+        'rfc': [
+          { type: 'required', message: 'El rfc es Requerido*' },
+          { type: 'maxlength', message: 'Son Máximo 13 caracteres*' },
+          { type: 'pattern', message: 'Formato Invalido*'}
+        ]}
+
+      this.mensaje_email = {
+        'email': [
+          { type: 'required', message: 'El email es Requerido*' },
+          { type: 'email', message: 'Agrega un formato valido*'}
+        ]}  
+
+    this.form1 = fb.group({
+      name: ['',Validators.compose([
+        Validators.required,Validators.minLength(3),
+            Validators.pattern('[A-Za-z]*') ])],
+
+       rfc: ['',Validators.compose([
+         Validators.required,Validators.maxLength(13),
+        Validators.pattern('^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z]|[0-9]){2}([A]|[0-9]){1})?$') ])],
+
+       email: ['',Validators.compose([
+        Validators.required, Validators.email])]
+    });
+
+
    }
   
    //MUESTRA EL POP-UP
-  show(id:number){
+  show(id:number,Name:any,RFC:any,Email:any){
     this.showModal = true;
     console.log("El id es: ");
     console.log(id);
 
     this.info = this.dataservice.arr.find(resul => resul.id === id+1);
     console.log(this.info);
-    this.name2 = this.info.name;
-    this.RFC1 = this.info.rfc;
-    this.correo2 = this.info.email;
+    Name.value = this.info.name;
+    RFC.value = this.info.rfc;
+    Email.value = this.info.email;
     
-    
+    return(this.info);
   }
   //OCULTA EL POP-UP
   hide(){
@@ -62,11 +101,11 @@ export class TablaUsComponent implements OnInit {
     this.RFC1 = "";
   }
   //Asigna los valores al editar
-  setData(){
+  setData(Name:any,RFC:any,Email:any){
     console.log("se borra? xd");
-     this.name2;
-     this.correo2;
-    this.RFC1;
+     this.info.name = Name.value;
+     this.info.rfc = RFC.value;
+     this.info.email = Email.value;
    // darle el valor al .info owo
   }
   borrar(id:number){

@@ -20,7 +20,7 @@
             <th></th>
         
         </tr>
-        <tr *ngFor="let tate of profiles">
+        <tr *ngFor="let tate of profiles let id = index">
             <td>{{tate.nande}}</td>
             <td>{{tate.Fecha}}</td>
             <td>
@@ -28,7 +28,7 @@
                 <span style="margin-right: 15%;">
                 
                 </span>
-                <a href="#" class='fa' >&#xf1f8;</a>
+                <a href="#" (click)="avr(id)" class='fa' >&#xf1f8;</a>
             </td>
            
         </tr>

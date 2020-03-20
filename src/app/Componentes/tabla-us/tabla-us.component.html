@@ -29,7 +29,7 @@
                 {{item.email}}
             </td>
             <td>
-                <a href="#" (click) = "show(id)" class='fa'  style="margin-left:50% ;" >&#xf304;</a>
+                <a href="#" (click) = "show(id,Name,RFC,Email)" class='fa'  style="margin-left:50% ;" >&#xf304;</a>
                 <span style="margin-right: 15%;">   
                 </span>
                 <a href="#" (click)="borrar(id)"  class='fa' >&#xf1f8;</a>
@@ -66,29 +66,55 @@
                 <!--Contenido-->
                 <div class="modal-body">
                     <div class="coniner">
-                        <div class="form-group">
-                            <label >Usuario</label>
-                            <input type="text" value="{{name}}"  [(ngModel)]="name2"  class="form-control" id="usr">
-                        </div>
-                        <div class="form-group row">
-                            <div class="col-sm-6">
-                                <label >RFC</label>
-                                <input type="text" [(ngModel)]="RFC1"  value="" class="form-control" id="usra">
+                        <form [formGroup]="form1">
+                            <div class="form-group">
+                                <label >Usuario</label>
+                                <input type="text"   formControlName="name" #Name  class="form-control" id="usr">
+                                <!--Errores-->
+                                <div *ngIf="form1.controls['name'].invalid && (form1.controls['name'].dirty || form1.controls['name'].touched)" >
+                                    <div *ngFor="let validation of mensaje_name.name" >
+                                        <div style="font-size: smaller !important;color:red" *ngIf="form1.get('name').hasError(validation.type) && (form1.get('name').dirty || form1.get('name').touched)">
+                                            {{validation.message}}
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label >Perfil</label>
-                                <select name="" class="form-control" id=""></select>
+                            <div class="form-group row">
+                                <div class="col-sm-6">
+                                    <label >RFC</label>
+                                    <input type="text" formControlName="rfc" #RFC value="" class="form-control" id="usra">
+                                    <!--Errores 2-->
+                                    <div *ngIf="form1.controls['rfc'].invalid && (form1.controls['rfc'].dirty || form1.controls['rfc'].touched)" >
+                                        <div *ngFor="let validation2 of mensaje_rfc.rfc" >
+                                            <div style="font-size: smaller !important;color:red" *ngIf="form1.get('rfc').hasError(validation2.type) && (form1.get('rfc').dirty || form1get('rfc').touched)">
+                                                {{validation2.message}}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label >Perfil</label>
+                                    <select name="" class="form-control" id=""></select>
+                                </div>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label >Correo Electronico</label>
-                            <input type="text" [(ngModel)]="correo2" value="{{correo}}" class="form-control" id="usrr">
-                        </div>
+                            <div class="form-group">
+                                <label >Correo Electronico</label>
+                                <input type="text" formControlName="email" #Email class="form-control" id="usrr">
+                                <!--Errores 3-->
+                                <div *ngIf="form1.controls['email'].invalid && (form1.controls['email'].dirty || form1.controls['email'].touched)" >
+                                    <div *ngFor="let validation3 of mensaje_email.email" >
+                                        <div style="font-size: smaller !important;color:red" *ngIf="form1.get('email').hasError(validation3.type) && (form1.get('email').dirty || form1.get('email').touched)">
+                                            {{validation3.message}}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>    
                     </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest()" (click) = "hide()" >Cancelar</button>
-                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "setData()" (click) = "hide()">Guardar</button>      
+                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "setData(Name,RFC,Email)" [disabled]="form1.invalid" (click) = "hide()">Guardar</button>      
                 </div>
             </div>
         </div>
