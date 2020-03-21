@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { FormGroup , FormBuilder, Validators } from "@angular/forms";
 import { TablaComponent } from '../tabla/tabla.component';
+import { FocusTrap } from '@angular/cdk/a11y';
 
 // wea normal
 @Component({
@@ -81,6 +82,7 @@ export class BotonsUComponent implements OnInit {
   //cerrar la wea de crear
   hide(){
     this.showModal = false;
+   
   }
   //DECLARA LOS DATOS DE CREAR AL DATA-SERVICE
   resetData(EM:any,RF:any,name1:any){
@@ -124,6 +126,7 @@ export class BotonsUComponent implements OnInit {
    EM.value = "";
    RF.value = "";
    name1.value = "";
+   
    this.rest(EM,RF,name1);
    this.hide();
   }

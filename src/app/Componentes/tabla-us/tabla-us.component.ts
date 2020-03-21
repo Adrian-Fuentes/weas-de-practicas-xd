@@ -107,6 +107,7 @@ export class TablaUsComponent implements OnInit {
      this.info.rfc = RFC.value;
      this.info.email = Email.value;
    // darle el valor al .info owo
+  
   }
   borrar(id:number){
     

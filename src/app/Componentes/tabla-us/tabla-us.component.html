@@ -86,7 +86,7 @@
                                     <!--Errores 2-->
                                     <div *ngIf="form1.controls['rfc'].invalid && (form1.controls['rfc'].dirty || form1.controls['rfc'].touched)" >
                                         <div *ngFor="let validation2 of mensaje_rfc.rfc" >
-                                            <div style="font-size: smaller !important;color:red" *ngIf="form1.get('rfc').hasError(validation2.type) && (form1.get('rfc').dirty || form1get('rfc').touched)">
+                                            <div style="font-size: smaller !important;color:red" *ngIf="form1.get('rfc').hasError(validation2.type) && (form1.get('rfc').dirty || form1.get('rfc').touched)">
                                                 {{validation2.message}}
                                             </div>
                                         </div>

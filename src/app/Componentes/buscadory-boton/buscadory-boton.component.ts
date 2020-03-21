@@ -16,6 +16,21 @@ Datitos = {
   nande: '',
   Fecha: 'GDFN123654IO7'
 }
+checado1 = false;
+checado2 = false;
+checado3 = false;
+checado4 = false;
+
+bloqueo1 = false;
+bloqueo2 = false;
+bloqueo3 = false;
+bloqueo4 = false;
+
+bloq1 = false;
+bloq2 = false;
+bloq3 = false;
+
+
   constructor(public servicio: DatosService) { 
     
   }

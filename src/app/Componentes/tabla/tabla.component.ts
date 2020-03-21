@@ -15,9 +15,12 @@ export class TablaComponent implements OnInit {
   Per1: string;
   profiles: Array<object> = [];
   datoss: any;
+  checked = false;
+  
   constructor(public ElService: DatosService) { 
     this.Per = "Aprobado"
     this.profiles = this.ElService.pasaP;
+   
   }
   avr(id:number){
     console.log("si pasa xd")

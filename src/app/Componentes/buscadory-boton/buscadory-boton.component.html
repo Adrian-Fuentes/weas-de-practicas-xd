@@ -25,18 +25,18 @@
             <div style="background-color: #DEE1E1;padding: 2%" >
             <b><label >Lineas de Credito Activas</label></b><br>
                 <div class="custom-control-inline">
-                    <mat-checkbox>Activar</mat-checkbox>
+                    <mat-checkbox [(ngModel)]="checado1" [disabled]="bloqueo2" [disabled]="bloqueo3" [disabled]="bloqueo4" [(ngModel)]="bloqueo1">Activar</mat-checkbox>
                 </div>
                 <div class="custom-control-inline ">
                    
-                    <mat-checkbox>Penalizaciones</mat-checkbox>
+                    <mat-checkbox [disabled]="bloqueo1" [disabled]="bloqueo3" [disabled]="bloqueo4" [(ngModel)]="bloqueo2" >Penalizaciones</mat-checkbox>
                 </div>
                 <div class=" custom-control-inline ">
                     
-                    <mat-checkbox>Firmar</mat-checkbox>
+                    <mat-checkbox [disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo4" [(ngModel)]="bloqueo3">Firmar</mat-checkbox>
                 </div>
                 <div class=" custom-control-inline">
-                    <mat-checkbox>Aprobar</mat-checkbox>
+                    <mat-checkbox [disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo3"  [(ngModel)]="bloqueo4">Aprobar</mat-checkbox>
                 </div>
             </div>
             <!--Parte 2-->
@@ -44,15 +44,15 @@
                 <b><label >Solicitud de Línea de Credito</label></b><br>
                 <div class=" custom-control-inline">
                     
-                    <mat-checkbox>Aprobar</mat-checkbox>
+                    <mat-checkbox [(ngModel)]="bloq1" [disabled]="bloq2" [disabled]="bloq3">Aprobar</mat-checkbox>
                 </div>
                 <div class="custom-control-inline">
                     
-                    <mat-checkbox>VoBo</mat-checkbox>
+                    <mat-checkbox [(ngModel)]="bloq2" [disabled]="bloq1" [disabled]="bloq3">VoBo</mat-checkbox>
                 </div>
                 <div class="custom-control-inline">
                     
-                    <mat-checkbox>Expediente</mat-checkbox>
+                    <mat-checkbox [(ngModel)]="bloq3" [disabled]="bloq2" [disabled]="bloq1">Expediente</mat-checkbox>
                 </div>
                 
             </div>
