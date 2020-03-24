@@ -66,7 +66,7 @@
                 <!--Contenido-->
                 <div class="modal-body">
                     <div class="coniner">
-                        <form [formGroup]="form1">
+                        <form [formGroup]="form1" (ngSubmit)="submitForm(form1)">
                             <div class="form-group">
                                 <label >Usuario</label>
                                 <input type="text"   formControlName="name" #Name  class="form-control" id="usr">
@@ -109,12 +109,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--Botones de cancelar y guardar-->
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest()" (click) = "hide()" >Cancelar</button>
+                                <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click) = "setData(Name,RFC,Email)" [disabled]="form1.invalid" (click) = "hide()">Guardar</button>      
+                            </div>
                         </form>    
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest()" (click) = "hide()" >Cancelar</button>
-                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click) = "setData(Name,RFC,Email)" [disabled]="form1.invalid" (click) = "hide()">Guardar</button>      
                 </div>
             </div>
         </div>

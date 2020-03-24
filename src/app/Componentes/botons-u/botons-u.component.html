@@ -20,7 +20,7 @@
           <!--Contenido-->
           <div class="modal-body">
               <div class="coniner" >
-                    <form [formGroup]="form">
+                    <form [formGroup]="form" (ngSubmit)="submitForm(form)">
                   
                         <div class="form-group">
                             <label >Usuario</label>
@@ -65,14 +65,15 @@
                                 </div>
                             </div>
                         </div>
+                        <!--BOTONES al final xD-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest(EM,RF,name1)"  >Cancelar</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" [disabled]="form.invalid" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
+                        </div>
                     </form>
               </div>
           </div>
-          <!--BOTONES al final xD-->
-          <div class="modal-footer">
-              <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest(EM,RF,name1)"  >Cancelar</button>
-              <button type="button" class="btn btn-dark" data-dismiss="modal" [disabled]="form.invalid" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
-          </div>
+          
       </div>
   </div>
 </div>

@@ -113,34 +113,37 @@ export class BotonsUComponent implements OnInit {
     //Manda a llamar la funcion de la tabla enlazada
    
     console.log("Datos obtenidos en el objeto:");
-   console.log( this.obj);
-   console.log("id:");
+    console.log( this.obj);
+    console.log("id:");
    
-   this.obj.id += 1;
-   console.log(this.obj.id);
-   console.log("que pasa?");
-   
-   console.log(this.dataservice.arr[this.i])
-   this.dataservice.ident = this.id;
-   this.i += 1;
-   EM.value = "";
-   RF.value = "";
-   name1.value = "";
-   
-   this.rest(EM,RF,name1);
-   this.hide();
+    this.obj.id += 1;
+    console.log(this.obj.id);
+    console.log("que pasa?");
+    
+    console.log(this.dataservice.arr[this.i])
+    this.dataservice.ident = this.id;
+    this.i += 1;
+    EM.value = "";
+    RF.value = "";
+    name1.value = "";
+    
+    this.rest(EM,RF,name1);
+    this.hide();
   }
-  
+
+  submitForm(formData: any): void {
+    this.form.reset();
+  }
   //AL DARLE CANCELAR RESETEA DATOS DEL NG-MODEL
   rest(EM:any,RF:any,name1:any){
     this.form.value.name = "";
     this.form.value.rfc = "";
     this.form.value.email = "";
-    
+  
     EM.value = "";
-   RF.value = "";
-   name1.value = "";
-   this.hide();
+    RF.value = "";
+    name1.value = "";
+    this.hide();
   }
   ngOnInit(): void {
   }

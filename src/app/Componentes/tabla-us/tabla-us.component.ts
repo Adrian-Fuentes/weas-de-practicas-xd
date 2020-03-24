@@ -107,7 +107,10 @@ export class TablaUsComponent implements OnInit {
      this.info.rfc = RFC.value;
      this.info.email = Email.value;
    // darle el valor al .info owo
-  
+    
+  }
+  submitForm(formData: any): void {
+    this.form1.reset();
   }
   borrar(id:number){
     
