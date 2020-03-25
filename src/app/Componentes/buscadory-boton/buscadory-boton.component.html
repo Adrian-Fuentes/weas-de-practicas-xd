@@ -16,51 +16,53 @@
         <h4 class="modal-title" id="myModalLabel">Nuevo Perfil</h4>
         </div>
         <div class="modal-body">
-            <div class="form-group">
-                <label >Nombre del Perfil</label>
-                <input type="text" [(ngModel)]="name" value=""   class="form-control" id="iwi">
-              </div>
-              <h4>Permisos</h4>
-              <!--boxcheck-->
-            <div style="background-color: #DEE1E1;padding: 2%" >
-            <b><label >Lineas de Credito Activas</label></b><br>
-                <div class="custom-control-inline">
-                    <mat-checkbox [(ngModel)]="checado1" [disabled]="bloqueo2" [disabled]="bloqueo3" [disabled]="bloqueo4" [(ngModel)]="bloqueo1">Activar</mat-checkbox>
+            <form [formGroup]="form3" >
+                <div class="form-group">
+                    <label >Nombre del Perfil</label>
+                    <input type="text" formControlName="name" value=""   class="form-control" id="iwi">
                 </div>
-                <div class="custom-control-inline ">
-                   
-                    <mat-checkbox [disabled]="bloqueo1" [disabled]="bloqueo3" [disabled]="bloqueo4" [(ngModel)]="bloqueo2" >Penalizaciones</mat-checkbox>
-                </div>
-                <div class=" custom-control-inline ">
+                <h4>Permisos</h4>
+                <!--boxcheck-->
+                <div style="background-color: #DEE1E1;padding: 2%" [formGroup]="chequeos" >
+                <b><label >Lineas de Credito Activas</label></b><br>
+                    <div class="custom-control-inline">
+                        <mat-checkbox formControlName="checado1"  >Activar</mat-checkbox><!--[disabled]="bloqueo2" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
+                    </div>
+                    <div class="custom-control-inline ">
                     
-                    <mat-checkbox [disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo4" [(ngModel)]="bloqueo3">Firmar</mat-checkbox>
+                        <mat-checkbox formControlName="checado2"   >Penalizaciones</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
+                    </div>
+                    <div class=" custom-control-inline ">
+                        
+                        <mat-checkbox formControlName="checado3"  >Firmar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo4"-->
+                    </div>
+                    <div class=" custom-control-inline">
+                        <mat-checkbox formControlName="checado4"   >Aprobar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo3"-->
+                    </div>
                 </div>
-                <div class=" custom-control-inline">
-                    <mat-checkbox [disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo3"  [(ngModel)]="bloqueo4">Aprobar</mat-checkbox>
-                </div>
-            </div>
-            <!--Parte 2-->
-            <div style="background-color: #DEE1E1;padding: 2%;">
-                <b><label >Solicitud de Línea de Credito</label></b><br>
-                <div class=" custom-control-inline">
+                <!--Parte 2-->
+                <div style="background-color: #DEE1E1;padding: 2%;" [formGroup]="chequeos2">
+                    <b><label >Solicitud de Línea de Credito</label></b><br>
+                    <div class=" custom-control-inline">
+                        
+                        <mat-checkbox formControlName="checado5" >Aprobar</mat-checkbox> <!--[disabled]="bloq2" [disabled]="bloq3"-->
+                    </div>
+                    <div class="custom-control-inline">
+                        
+                        <mat-checkbox formControlName="checado6" >VoBo</mat-checkbox> <!--[disabled]="bloq1" [disabled]="bloq3"-->
+                    </div>
+                    <div class="custom-control-inline">
+                        
+                        <mat-checkbox formControlName="checado7" >Expediente</mat-checkbox><!--[disabled]="bloq2" [disabled]="bloq1"-->
+                    </div>
                     
-                    <mat-checkbox [(ngModel)]="bloq1" [disabled]="bloq2" [disabled]="bloq3">Aprobar</mat-checkbox>
                 </div>
-                <div class="custom-control-inline">
-                    
-                    <mat-checkbox [(ngModel)]="bloq2" [disabled]="bloq1" [disabled]="bloq3">VoBo</mat-checkbox>
-                </div>
-                <div class="custom-control-inline">
-                    
-                    <mat-checkbox [(ngModel)]="bloq3" [disabled]="bloq2" [disabled]="bloq1">Expediente</mat-checkbox>
-                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD()" (click) = "quitar()" >Cancelar</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal"  (click)= "Guardar()"  (click) = "quitar()">Guardar</button>
                 
-            </div>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD()" (click) = "quitar()" >Cancelar</button>
-            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)= "Guardar()"  (click) = "quitar()">Guardar</button>
-        
+                </div>
+            </form>
         </div>
     </div>
     </div>
