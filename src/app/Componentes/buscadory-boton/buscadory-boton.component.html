@@ -16,14 +16,21 @@
         <h4 class="modal-title" id="myModalLabel">Nuevo Perfil</h4>
         </div>
         <div class="modal-body">
-            <form [formGroup]="form3" >
+            <form [formGroup]="form3" (ngSubmit)="submitForm(form3)" >
                 <div class="form-group">
                     <label >Nombre del Perfil</label>
-                    <input type="text" formControlName="name" value=""   class="form-control" id="iwi">
+                    <input type="text" formControlName="name" value=""  #na  class="form-control" >
+                    <div *ngIf="form3.controls['name'].invalid && (form3.controls['name'].dirty || form3.controls['name'].touched)" >
+                        <div *ngFor="let validation of mensaje_name.name" >
+                            <div style="font-size: smaller !important;color:red" *ngIf="form3.get('name').hasError(validation.type) && (form3.get('name').dirty || form3.get('name').touched)">
+                                {{validation.message}}
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <h4>Permisos</h4>
                 <!--boxcheck-->
-                <div style="background-color: #DEE1E1;padding: 2%" [formGroup]="chequeos" >
+                <div style="background-color: #DEE1E1;padding: 2%" formGroupName="chequeos" >
                 <b><label >Lineas de Credito Activas</label></b><br>
                     <div class="custom-control-inline">
                         <mat-checkbox formControlName="checado1"  >Activar</mat-checkbox><!--[disabled]="bloqueo2" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
@@ -41,7 +48,7 @@
                     </div>
                 </div>
                 <!--Parte 2-->
-                <div style="background-color: #DEE1E1;padding: 2%;" [formGroup]="chequeos2">
+                <div style="background-color: #DEE1E1;padding: 2%;" formGroupName="chequeos2">
                     <b><label >Solicitud de Línea de Credito</label></b><br>
                     <div class=" custom-control-inline">
                         
@@ -59,7 +66,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD()" (click) = "quitar()" >Cancelar</button>
-                    <button type="button" class="btn btn-dark" data-dismiss="modal"  (click)= "Guardar()"  (click) = "quitar()">Guardar</button>
+                    <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na)" [disabled]="form3.invalid"  (click) = "quitar()">Guardar</button>
                 
                 </div>
             </form>
