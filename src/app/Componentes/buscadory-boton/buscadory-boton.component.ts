@@ -1,3 +1,4 @@
+//owo
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { FormGroup , FormBuilder, Validators, FormControl} from "@angular/forms";
@@ -106,3 +107,4 @@ submitForm(formData: any): void {
   }
 
 }
+//h
