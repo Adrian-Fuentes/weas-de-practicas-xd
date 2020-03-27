@@ -17,15 +17,13 @@ Datitos = {
   nande: '',
   Fecha: 'GDFN123654IO7'
 }
-/*
-checado1 = false;
-checado2 = false;
-checado3 = false;
-checado4 = false;
-checado5 = false;
-checado6 = false;
-checado7 = false;
-*/
+Check1 = false;
+Check2 = false;
+Check3 = false;
+Check4 = false;
+Check5 = false;
+Check6 = false;
+Check7 = false;
 chequeos:any;
 chequeos2:any;
 bloqueo1 = false;
@@ -86,7 +84,7 @@ Guardar(na:any){
 console.log(na.value);
 
   this.id = this.servicio.pasaP.length +1;
-this.servicio.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7'});
+this.servicio.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7',che1: this.Check1 ,che2: this.Check2 ,che3: this.Check3 ,che4: this.Check4 ,che5: this.Check5 ,che6: this.Check6 ,che7: this.Check7});
 console.log(this.Datitos);
 this.servicio.paso();
 }

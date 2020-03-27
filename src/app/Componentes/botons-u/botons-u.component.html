@@ -56,7 +56,7 @@
                         </div>
                         <div class="form-group">
                             <label >Correo Electronico</label>
-                            <input type="text"    value="" #EM  formControlName="email" class="form-control" id="crr">
+                            <input type="text"    value="" #EM  formControlName="email" class="form-control" >
                             <div *ngIf="form.controls['email'].invalid && (form.controls['email'].dirty || form.controls['email'].touched)" >
                                 <div *ngFor="let validation3 of mensaje_email.email" >
                                     <div style="font-size: smaller !important;color:red" *ngIf="form.get('email').hasError(validation3.type) && (form.get('email').dirty || form.get('email').touched)">

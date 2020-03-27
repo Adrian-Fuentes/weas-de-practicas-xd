@@ -69,7 +69,7 @@
                         <form [formGroup]="form1" (ngSubmit)="submitForm(form1)">
                             <div class="form-group">
                                 <label >Usuario</label>
-                                <input type="text"   formControlName="name" #Name  class="form-control" id="usr">
+                                <input type="text"   formControlName="name" #Name  class="form-control" >
                                 <!--Errores-->
                                 <div *ngIf="form1.controls['name'].invalid && (form1.controls['name'].dirty || form1.controls['name'].touched)" >
                                     <div *ngFor="let validation of mensaje_name.name" >
@@ -82,7 +82,7 @@
                             <div class="form-group row">
                                 <div class="col-sm-6">
                                     <label >RFC</label>
-                                    <input type="text" formControlName="rfc" #RFC value="" class="form-control" id="usra">
+                                    <input type="text" formControlName="rfc" #RFC value="" class="form-control" >
                                     <!--Errores 2-->
                                     <div *ngIf="form1.controls['rfc'].invalid && (form1.controls['rfc'].dirty || form1.controls['rfc'].touched)" >
                                         <div *ngFor="let validation2 of mensaje_rfc.rfc" >
@@ -94,12 +94,12 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label >Perfil</label>
-                                    <select name="" class="form-control" id=""></select>
+                                    <select name="" class="form-control" ></select>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label >Correo Electronico</label>
-                                <input type="text" formControlName="email" #Email class="form-control" id="usrr">
+                                <input type="text" formControlName="email" #Email class="form-control" >
                                 <!--Errores 3-->
                                 <div *ngIf="form1.controls['email'].invalid && (form1.controls['email'].dirty || form1.controls['email'].touched)" >
                                     <div *ngFor="let validation3 of mensaje_email.email" >

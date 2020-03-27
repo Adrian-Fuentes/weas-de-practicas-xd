@@ -34,18 +34,18 @@
                 <div style="background-color: #DEE1E1;padding: 2%" formGroupName="chequeos" >
                 <b><label >Lineas de Credito Activas</label></b><br>
                     <div class="custom-control-inline">
-                        <mat-checkbox formControlName="checado1"  >Activar</mat-checkbox><!--[disabled]="bloqueo2" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
+                        <mat-checkbox formControlName="checado1" [(ngModel)]="Check1"  >Activar</mat-checkbox><!--[disabled]="bloqueo2" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
                     </div>
                     <div class="custom-control-inline ">
                     
-                        <mat-checkbox formControlName="checado2"   >Penalizaciones</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
+                        <mat-checkbox formControlName="checado2" [(ngModel)]="Check2" >Penalizaciones</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
                     </div>
                     <div class=" custom-control-inline ">
                         
-                        <mat-checkbox formControlName="checado3"  >Firmar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo4"-->
+                        <mat-checkbox formControlName="checado3" [(ngModel)]="Check3" >Firmar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo4"-->
                     </div>
                     <div class=" custom-control-inline">
-                        <mat-checkbox formControlName="checado4"   >Aprobar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo3"-->
+                        <mat-checkbox formControlName="checado4" [(ngModel)]="Check4" >Aprobar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo3"-->
                     </div>
                 </div>
                 <!--Parte 2-->
@@ -53,15 +53,15 @@
                     <b><label >Solicitud de Línea de Credito</label></b><br>
                     <div class=" custom-control-inline">
                         
-                        <mat-checkbox formControlName="checado5" >Aprobar</mat-checkbox> <!--[disabled]="bloq2" [disabled]="bloq3"-->
+                        <mat-checkbox formControlName="checado5" [(ngModel)]="Check5" >Aprobar</mat-checkbox> <!--[disabled]="bloq2" [disabled]="bloq3"-->
                     </div>
                     <div class="custom-control-inline">
                         
-                        <mat-checkbox formControlName="checado6" >VoBo</mat-checkbox> <!--[disabled]="bloq1" [disabled]="bloq3"-->
+                        <mat-checkbox formControlName="checado6" [(ngModel)]="Check6" >VoBo</mat-checkbox> <!--[disabled]="bloq1" [disabled]="bloq3"-->
                     </div>
                     <div class="custom-control-inline">
                         
-                        <mat-checkbox formControlName="checado7" >Expediente</mat-checkbox><!--[disabled]="bloq2" [disabled]="bloq1"-->
+                        <mat-checkbox formControlName="checado7" [(ngModel)]="Check7" >Expediente</mat-checkbox><!--[disabled]="bloq2" [disabled]="bloq1"-->
                     </div>
                     
                 </div>
