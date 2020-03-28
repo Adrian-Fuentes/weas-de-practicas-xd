@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { FormGroup , FormBuilder, Validators } from "@angular/forms";
 import { TablaComponent } from '../tabla/tabla.component';
-import { FocusTrap } from '@angular/cdk/a11y';
+
 
 // wea normal
 @Component({
@@ -32,6 +32,7 @@ export class BotonsUComponent implements OnInit {
   mensaje_email:any;
   i=1;
   id:number = 1;
+  Perfil = "no";
   
   constructor(private dataservice:DatosService , private built:FormBuilder) {
     this.mensaje_name = {
@@ -64,7 +65,9 @@ export class BotonsUComponent implements OnInit {
         Validators.pattern('^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z]|[0-9]){2}([A]|[0-9]){1})?$') ])],
 
        email: ['',Validators.compose([
-        Validators.required, Validators.email])]
+        Validators.required, Validators.email])],
+
+       
     });
     
    
@@ -92,6 +95,10 @@ export class BotonsUComponent implements OnInit {
     this.email = this.form.value.email;
     console.log("el name es: ");
     console.log(this.name);
+    console.log(this.Perfil);
+    
+    
+    
     
      
     console.log("se agrego xd");
@@ -129,6 +136,12 @@ export class BotonsUComponent implements OnInit {
     
     this.rest(EM,RF,name1);
     this.hide();
+  }
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.Perfil = event.target.value;
+    console.log(this.Perfil);
+    
   }
 
   submitForm(formData: any): void {

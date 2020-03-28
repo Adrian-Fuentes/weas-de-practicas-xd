@@ -47,10 +47,11 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6" >
                             <label >Perfil</label>
-                            <select name="" class="form-control"  id="">
-                                <option value="" *ngFor="let item of dat1">{{item.nande}}</option>
+                            <select name="" class="form-control"  [(value)]="Perfil" (change)="selectChangeHandler($event)" >
+                                <option value="no">Elige un perfil</option>
+                                <option value="{{item.nande}}" *ngFor="let item of dat1">{{item.nande}}</option>
                             </select>
                         </div>
                         </div>
@@ -67,8 +68,8 @@
                         </div>
                         <!--BOTONES al final xD-->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest(EM,RF,name1)"  >Cancelar</button>
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" [disabled]="form.invalid" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)="rest(EM,RF,name1)"  >Cancelar</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" [disabled]="form.invalid || Perfil == 'no'" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
                         </div>
                     </form>
               </div>
