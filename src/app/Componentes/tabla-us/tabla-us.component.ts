@@ -40,7 +40,7 @@ export class TablaUsComponent implements OnInit {
   dat:any;
   constructor(public dataservice: DatosService, public botons:BotonsUComponent,private fb:FormBuilder) {
     // Se declara los valores del arr para activar el NgFor
-    
+    this.dat = this.dataservice.pasaP;
 
     this.Datos = this.dataservice.arr;
     console.log(this.Datos);
@@ -76,14 +76,14 @@ export class TablaUsComponent implements OnInit {
        email: ['',Validators.compose([
         Validators.required, Validators.email])]
     });
-
+   
 
    }
   
    //MUESTRA EL POP-UP
-  show(id:number,Name:any,RFC:any,Email:any){
+  show(id:number,Name:any,RFC:any,Email:any,per:any){
     this.dat = this.dataservice.pasaP;
-    this.showModal = true;
+   
     console.log("El id es: ");
     console.log(id);
 
@@ -92,13 +92,15 @@ export class TablaUsComponent implements OnInit {
     Name.value = this.info.name;
     RFC.value = this.info.rfc;
     Email.value = this.info.email;
-    
-    
+    per.value = this.Perfil1;
     this.Perfil1 = this.info.perfil;
+    
+    
     console.log("entro");
     console.log(this.Perfil1);
     console.log(
      this.info.perfil);
+     this.showModal = true;
     return(this.info,this.Perfil1);
   }
   //OCULTA EL POP-UP
