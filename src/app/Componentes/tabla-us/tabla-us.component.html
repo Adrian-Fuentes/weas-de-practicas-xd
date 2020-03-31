@@ -94,7 +94,10 @@
                                 </div>
                                 <div class="col-sm-6">
                                     <label >Perfil</label>
-                                    <select name="" class="form-control" ></select>
+                                    <select name="" class="form-control" [(value)]="Perfil1" #per (change)="selectChangeHandler($event)">
+                                        <option value="no">Escoge Un Perfil</option>
+                                        <option value="{{item.nande}}" *ngFor="let item of dat">{{item.nande}}</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -112,7 +115,7 @@
                             <!--Botones de cancelar y guardar-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest()" (click) = "hide()" >Cancelar</button>
-                                <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click) = "setData(Name,RFC,Email)" [disabled]="form1.invalid" (click) = "hide()">Guardar</button>      
+                                <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click) = "setData(Name,RFC,Email)" [disabled]="form1.invalid || Perfil1 == 'no'" (click) = "hide()">Guardar</button>      
                             </div>
                         </form>    
                     </div>

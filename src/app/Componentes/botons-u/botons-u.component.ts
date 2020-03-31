@@ -25,7 +25,8 @@ export class BotonsUComponent implements OnInit {
     id:1,
     name:'',
     rfc:'',
-    email:''
+    email:'',
+    perfil:''
   }
   mensaje_name:any;
   mensaje_rfc:any;
@@ -112,7 +113,7 @@ export class BotonsUComponent implements OnInit {
 
     // ingresar el objeto al array
 
-    this.dataservice.arr.push({id: this.id, name: this.name, rfc: this.rfc, email: this.email}); 
+    this.dataservice.arr.push({id: this.id, name: this.name, rfc: this.rfc, email: this.email, perfil: this.Perfil}); 
     
     console.log("avr cadenacion xd");
     console.log(this.dataservice.arr2);
@@ -133,9 +134,11 @@ export class BotonsUComponent implements OnInit {
     EM.value = "";
     RF.value = "";
     name1.value = "";
-    
+    // this.dataservice.DatoP(this.Perfil);
     this.rest(EM,RF,name1);
     this.hide();
+    this.Perfil = "no"
+    return(this.Perfil);
   }
   selectChangeHandler (event: any) {
     //update the ui
@@ -146,6 +149,8 @@ export class BotonsUComponent implements OnInit {
 
   submitForm(formData: any): void {
     this.form.reset();
+    
+   
   }
   //AL DARLE CANCELAR RESETEA DATOS DEL NG-MODEL
   rest(EM:any,RF:any,name1:any){

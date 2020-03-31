@@ -36,8 +36,12 @@ export class TablaUsComponent implements OnInit {
   mensaje_name:any;
   mensaje_rfc:any;
   mensaje_email:any;
+  Perfil1 = 'no';
+  dat:any;
   constructor(public dataservice: DatosService, public botons:BotonsUComponent,private fb:FormBuilder) {
     // Se declara los valores del arr para activar el NgFor
+    
+
     this.Datos = this.dataservice.arr;
     console.log(this.Datos);
     this.mensaje_name = {
@@ -78,6 +82,7 @@ export class TablaUsComponent implements OnInit {
   
    //MUESTRA EL POP-UP
   show(id:number,Name:any,RFC:any,Email:any){
+    this.dat = this.dataservice.pasaP;
     this.showModal = true;
     console.log("El id es: ");
     console.log(id);
@@ -88,7 +93,13 @@ export class TablaUsComponent implements OnInit {
     RFC.value = this.info.rfc;
     Email.value = this.info.email;
     
-    return(this.info);
+    
+    this.Perfil1 = this.info.perfil;
+    console.log("entro");
+    console.log(this.Perfil1);
+    console.log(
+     this.info.perfil);
+    return(this.info,this.Perfil1);
   }
   //OCULTA EL POP-UP
   hide(){
@@ -106,11 +117,19 @@ export class TablaUsComponent implements OnInit {
      this.info.name = Name.value;
      this.info.rfc = RFC.value;
      this.info.email = Email.value;
+     this.info.perfil = this.Perfil1;
+     
    // darle el valor al .info owo
     
   }
   submitForm(formData: any): void {
     this.form1.reset();
+  }
+  selectChangeHandler (event: any) {
+    //update the ui
+    this.Perfil1 = event.target.value;
+    console.log(this.Perfil1);
+    
   }
   borrar(id:number){
     
