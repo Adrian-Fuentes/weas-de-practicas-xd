@@ -11,7 +11,7 @@ import {requireCheckboxesToBeCheckedValidator} from "./require-checkboxes-to-be-
 })
 export class BuscadoryBotonComponent implements OnInit {
 id : any;
-showModall:boolean;
+showModall1:boolean;
 name:string;
 Datitos = {
   nande: '',
@@ -89,10 +89,10 @@ console.log(this.Datitos);
 this.servicio.paso();
 }
 crear(){
-  this.showModall = true;
+  this.showModall1 = true;
 }
 quitar(){
-this.showModall = false;
+this.showModall1 = false;
 }
 RegresarD(){
 

@@ -32,7 +32,7 @@ import { BotonsUComponent } from './componentes/botons-u/botons-u.component';
     MatCheckboxModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [BuscadoryBotonComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule {

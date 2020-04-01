@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { FormGroup , FormBuilder, Validators } from "@angular/forms";
-import { TablaComponent } from '../tabla/tabla.component';
+
+import { BuscadoryBotonComponent } from '../buscadory-boton/buscadory-boton.component';
 
 
 // wea normal
 @Component({
-  
+  providers:[BuscadoryBotonComponent],
   selector: 'app-botons-u',
   templateUrl: './botons-u.component.html',
   styleUrls: ['./botons-u.component.css']
@@ -35,7 +36,7 @@ export class BotonsUComponent implements OnInit {
   id:number = 1;
   Perfil = "no";
   
-  constructor(private dataservice:DatosService , private built:FormBuilder) {
+  constructor(private dataservice:DatosService , private built:FormBuilder,private crearP:BuscadoryBotonComponent) {
     this.mensaje_name = {
       'name': [
         { type: 'required', message: 'El nombre es Requerido*' },
@@ -87,6 +88,11 @@ export class BotonsUComponent implements OnInit {
   hide(){
     this.showModal = false;
    
+  }
+  usu(){
+    this.crearP.crear();
+    console.log("entro");
+    
   }
   //DECLARA LOS DATOS DE CREAR AL DATA-SERVICE
   resetData(EM:any,RF:any,name1:any){
@@ -144,6 +150,12 @@ export class BotonsUComponent implements OnInit {
     //update the ui
     this.Perfil = event.target.value;
     console.log(this.Perfil);
+    if(event.target.value == "Ce"){
+      this.usu();
+    }else{
+      console.log("no paso xd");
+      
+    }
     
   }
 
