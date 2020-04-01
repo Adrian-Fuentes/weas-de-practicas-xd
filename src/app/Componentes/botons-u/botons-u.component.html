@@ -70,7 +70,7 @@
                         <!--BOTONES al final xD-->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)="rest(EM,RF,name1)"  >Cancelar</button>
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" [disabled]="form.invalid || Perfil == 'no'" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" [disabled]="form.invalid || Perfil == 'no' || Perfil == 'Ce'" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
                         </div>
                     </form>
               </div>
@@ -80,3 +80,72 @@
   </div>
 </div>
 <!--{{form.value | json}}-->
+
+<!--Parte del crear perfiles---------------------------------------------------------------------------------------------------------------------------------------------->
+<!--Parte larga UnU-->
+
+<div [style.display]="showModall1 ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" >
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">Nuevo Perfil</h4>
+            </div>
+            <div class="modal-body">
+                    <form [formGroup]="form3" (ngSubmit)="submitForm1(form3)" >
+                        <div class="form-group">
+                            <label >Nombre del Perfil</label>
+                            <input type="text" formControlName="name" value=""  #na  class="form-control" >
+                            <div *ngIf="form3.controls['name'].invalid && (form3.controls['name'].dirty || form3.controls['name'].touched)" >
+                                <div *ngFor="let validation of mensaje_name.name" >
+                                    <div style="font-size: smaller !important;color:red" *ngIf="form3.get('name').hasError(validation.type) && (form3.get('name').dirty || form3.get('name').touched)">
+                                        {{validation.message}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Permisos</h4>
+                        <!--boxcheck-->
+                        <div style="background-color: #DEE1E1;padding: 2%" formGroupName="chequeos" >
+                        <b><label >Lineas de Credito Activas</label></b><br>
+                            <div class="custom-control-inline">
+                                <mat-checkbox formControlName="checado1" [(ngModel)]="Check1"  >Activar</mat-checkbox><!--[disabled]="bloqueo2" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
+                            </div>
+                            <div class="custom-control-inline ">
+                            
+                                <mat-checkbox formControlName="checado2" [(ngModel)]="Check2" >Penalizaciones</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo3" [disabled]="bloqueo4"-->
+                            </div>
+                            <div class=" custom-control-inline ">
+                                
+                                <mat-checkbox formControlName="checado3" [(ngModel)]="Check3" >Firmar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo4"-->
+                            </div>
+                            <div class=" custom-control-inline">
+                                <mat-checkbox formControlName="checado4" [(ngModel)]="Check4" >Aprobar</mat-checkbox><!--[disabled]="bloqueo1" [disabled]="bloqueo2" [disabled]="bloqueo3"-->
+                            </div>
+                        </div>
+                        <!--Parte 2-->
+                        <div style="background-color: #DEE1E1;padding: 2%;" formGroupName="chequeos2">
+                            <b><label >Solicitud de Línea de Credito</label></b><br>
+                            <div class=" custom-control-inline">
+                                
+                                <mat-checkbox formControlName="checado5" [(ngModel)]="Check5" >Aprobar</mat-checkbox> <!--[disabled]="bloq2" [disabled]="bloq3"-->
+                            </div>
+                            <div class="custom-control-inline">
+                                
+                                <mat-checkbox formControlName="checado6" [(ngModel)]="Check6" >VoBo</mat-checkbox> <!--[disabled]="bloq1" [disabled]="bloq3"-->
+                            </div>
+                            <div class="custom-control-inline">
+                                
+                                <mat-checkbox formControlName="checado7" [(ngModel)]="Check7" >Expediente</mat-checkbox><!--[disabled]="bloq2" [disabled]="bloq1"-->
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD()" (click) = "quitar()" >Cancelar</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na)" [disabled]="form3.invalid"  (click) = "quitar()">Guardar</button>
+                        
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
-import { FormGroup , FormBuilder, Validators } from "@angular/forms";
-
+import { FormGroup , FormBuilder, Validators, FormControl } from "@angular/forms";
 import { BuscadoryBotonComponent } from '../buscadory-boton/buscadory-boton.component';
-
+import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-checkboxes-to-be-checked.validator"
 
 // wea normal
 @Component({
@@ -13,6 +12,7 @@ import { BuscadoryBotonComponent } from '../buscadory-boton/buscadory-boton.comp
   styleUrls: ['./botons-u.component.css']
 })
 export class BotonsUComponent implements OnInit {
+  //datos de ests componente
   form: FormGroup;
   showModal: boolean;
   Cnombre: string;
@@ -35,6 +35,31 @@ export class BotonsUComponent implements OnInit {
   i=1;
   id:number = 1;
   Perfil = "no";
+  //Datos del componente de crear perfiles
+  Check1 = false;
+Check2 = false;
+Check3 = false;
+Check4 = false;
+Check5 = false;
+Check6 = false;
+Check7 = false;
+chequeos:any;
+chequeos2:any;
+bloqueo1 = false;
+bloqueo2 = false;
+bloqueo3 = false;
+bloqueo4 = false;
+
+bloq1 = false;
+bloq2 = false;
+bloq3 = false;
+form3:FormGroup;
+mensaje_name1:any;
+showModall1:boolean;
+Datitos = {
+  nande: '',
+  Fecha: 'GDFN123654IO7'
+}
   
   constructor(private dataservice:DatosService , private built:FormBuilder,private crearP:BuscadoryBotonComponent) {
     this.mensaje_name = {
@@ -71,9 +96,32 @@ export class BotonsUComponent implements OnInit {
 
        
     });
+    //PARTE DEL CREAR PERFILES----------------------------------------------------------------------------------------------------------------------
+    this.form3 = new FormGroup({
+      //se secciona por validacion (esta es del name)
+      name: new FormControl('',[Validators.compose([
+        Validators.required,Validators.minLength(3),
+    Validators.pattern('[A-Za-z]*')]) ]),
+        //Seccion del primer grupo de checks
+    chequeos:  new FormGroup({
+    checado1: new FormControl(false),
+    checado2: new FormControl(false),
+    checado3: new FormControl(false),
+    checado4: new FormControl(false),
+    //funcion que llama un .ts que hace la validacion de un grupo
+    },requireCheckboxesToBeCheckedValidator()),
+    //seccion del segundo grupo de checks
+    chequeos2: new FormGroup({
+    checado5: new FormControl(false),
+    checado6: new FormControl(false),
+    checado7: new FormControl(false)
+    //misma funcion para comprobar comoa arriba xD
+    },requireCheckboxesToBeCheckedValidator())
+    })
     
-   
-   }
+  }
+    
+    //TERMINA xD------------------------------------------------------------------------------------------------------------------------------------
   //abrir la wea de crear
   show(){
     // obtener datos del perfil (tabla 2)
@@ -90,7 +138,7 @@ export class BotonsUComponent implements OnInit {
    
   }
   usu(){
-    this.crearP.crear();
+    this.crear();
     console.log("entro");
     
   }
@@ -178,13 +226,47 @@ export class BotonsUComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /*RECORDATORIO
+  HACER UNA FUNCION QUE ACTIVE EL NGFOR DE LA TABLA CON LOS SIG. DATOS: 
+  this.Datos = [
+    {
+      "id":1, "dat1":this.dataservice.DatoName, "dat2":this.dataservice.DatoRFC, "dat3": this.dataservice.DatoCr
+    }
+  ]
+  this.activa = true;
+  */
+ // PARTE DEL CREAR PERFILES ----------------------------------------------------------------------------------------------------------------------
+ Guardar(na:any){
+  console.log("avr");
+  
+console.log(na.value);
+
+  this.id = this.dataservice.pasaP.length +1;
+this.dataservice.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7',che1: this.Check1 ,che2: this.Check2 ,che3: this.Check3 ,che4: this.Check4 ,che5: this.Check5 ,che6: this.Check6 ,che7: this.Check7});
+console.log(this.Datitos);
+this.dataservice.paso();
 }
-/*RECORDATORIO
-HACER UNA FUNCION QUE ACTIVE EL NGFOR DE LA TABLA CON LOS SIG. DATOS: 
-    this.Datos = [
-      {
-        "id":1, "dat1":this.dataservice.DatoName, "dat2":this.dataservice.DatoRFC, "dat3": this.dataservice.DatoCr
-      }
-      ]
-    this.activa = true;
-*/
+
+crear(){
+  this.showModall1 = true;
+}
+
+quitar(){
+  this.showModall1 = false;
+  this.Check1 = false;
+  this.Check2 = false;
+  this.Check3 = false;
+  this.Check4 = false;
+  this.Check5 = false;
+  this.Check6 = false;
+  this.Check7 = false;
+ //na.value = "";
+
+  }
+  submitForm1(formData: any): void {
+    this.form3.reset();
+  }
+  RegresarD(){
+    
+  }
+}
