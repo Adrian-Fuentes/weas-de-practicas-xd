@@ -95,7 +95,7 @@ quitar(){
 this.showModall1 = false;
 }
 RegresarD(){
-
+  
 }
 
 submitForm(formData: any): void {

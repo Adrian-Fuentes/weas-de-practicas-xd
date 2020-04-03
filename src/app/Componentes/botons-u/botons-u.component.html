@@ -54,6 +54,9 @@
                                 <option value="{{item.nande}}" *ngFor="let item of dat1">{{item.nande}}</option>
                                 <option value="Ce" (click)="usu()">Crear Perfil</option>
                             </select>
+                                    <div *ngIf="dat1.length == 0">
+                                        <i class="text-danger">No hay perfiles*</i>
+                                    </div>
                         </div>
                         </div>
                         <div class="form-group">
@@ -140,7 +143,7 @@
                             
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD()" (click) = "quitar()" >Cancelar</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD(na)" (click) = "quitar()" >Cancelar</button>
                             <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na)" [disabled]="form3.invalid"  (click) = "quitar()">Guardar</button>
                         
                         </div>

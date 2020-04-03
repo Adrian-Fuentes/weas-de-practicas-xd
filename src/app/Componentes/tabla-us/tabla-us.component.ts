@@ -31,7 +31,7 @@ export class TablaUsComponent implements OnInit {
     
   ];
   activa: boolean = false;
-  wea1: string;
+  wea1: any;
   form1:FormGroup
   mensaje_name:any;
   mensaje_rfc:any;
@@ -83,7 +83,7 @@ export class TablaUsComponent implements OnInit {
    //MUESTRA EL POP-UP
   show(id:number,Name:any,RFC:any,Email:any,per:any){
     this.dat = this.dataservice.pasaP;
-   
+    
     console.log("El id es: ");
     console.log(id);
 
