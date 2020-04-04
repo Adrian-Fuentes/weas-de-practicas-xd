@@ -94,8 +94,15 @@ crear(){
 quitar(){
 this.showModall1 = false;
 }
-RegresarD(){
-  
+RegresarD(na:any){
+  this.Check1 = false;
+  this.Check2 = false;
+  this.Check3 = false;
+  this.Check4 = false;
+  this.Check5 = false;
+  this.Check6 = false;
+  this.Check7 = false;
+  na.value = "";
 }
 
 submitForm(formData: any): void {

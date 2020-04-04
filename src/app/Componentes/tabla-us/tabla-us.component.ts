@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { BotonsUComponent } from '../botons-u/botons-u.component';
-import { FormGroup , FormBuilder, Validators } from "@angular/forms";
-
+import { FormGroup , FormBuilder, Validators,FormControl } from "@angular/forms";
+import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-checkboxes-to-be-checked.validator"
 
 
 @Component({
@@ -38,6 +38,22 @@ export class TablaUsComponent implements OnInit {
   mensaje_email:any;
   Perfil1 = 'no';
   dat:any;
+  //crear perfil
+  
+  Check1 = false;
+  Check2 = false;
+  Check3 = false;
+  Check4 = false;
+  Check5 = false;
+  Check6 = false;
+  Check7 = false;
+  form3:FormGroup;
+  Datitos = {
+    nande: '',
+    Fecha: 'GDFN123654IO7'
+  }
+  showModall1:Boolean = false;
+  id:number;
   constructor(public dataservice: DatosService, public botons:BotonsUComponent,private fb:FormBuilder) {
     // Se declara los valores del arr para activar el NgFor
     this.dat = this.dataservice.pasaP;
@@ -76,9 +92,34 @@ export class TablaUsComponent implements OnInit {
        email: ['',Validators.compose([
         Validators.required, Validators.email])]
     });
-   
+    //PARTE DEL CREAR PERFILES----------------------------------------------------------------------------------------------------------------------
+    this.form3 = new FormGroup({
+      //se secciona por validacion (esta es del name)
+      name: new FormControl('',[Validators.compose([
+        Validators.required,Validators.minLength(3),
+    Validators.pattern('[A-Za-z]*')]) ]),
+        //Seccion del primer grupo de checks
+    chequeos:  new FormGroup({
+    checado1: new FormControl(false),
+    checado2: new FormControl(false),
+    checado3: new FormControl(false),
+    checado4: new FormControl(false),
+    //funcion que llama un .ts que hace la validacion de un grupo
+    },requireCheckboxesToBeCheckedValidator()),
+    //seccion del segundo grupo de checks
+    chequeos2: new FormGroup({
+    checado5: new FormControl(false),
+    checado6: new FormControl(false),
+    checado7: new FormControl(false)
+    //misma funcion para comprobar comoa arriba xD
+    },requireCheckboxesToBeCheckedValidator())
+    })
+    
+  }
+    
+    //TERMINA xD------------------------------------------------------------------------------------------------------------------------------------
 
-   }
+   
   
    //MUESTRA EL POP-UP
   show(id:number,Name:any,RFC:any,Email:any,per:any){
@@ -130,7 +171,14 @@ export class TablaUsComponent implements OnInit {
   selectChangeHandler (event: any) {
     //update the ui
     this.Perfil1 = event.target.value;
+    console.log("El option es:");
+    
     console.log(this.Perfil1);
+    if (this.Perfil1 == "Crea"){
+      console.log("si agarro xd");
+      this.crear()
+      
+    }
     
   }
   borrar(id:number){
@@ -141,9 +189,49 @@ export class TablaUsComponent implements OnInit {
 
   }
   //Funcion a llamar desde el componente de los botones
-  
+  prender(){
+    this.crear();
+    console.log("Se activo");
+    
+  }
   ngOnInit(): void {
 
   }
+  //---------------------------------------------------------------------------------------------------------------------------------------------
+// PARTE DEL CREAR PERFILES ----------------------------------------------------------------------------------------------------------------------
+Guardar(na:any){
+  console.log("avr");
+  
+console.log(na.value);
 
+  this.id = this.dataservice.pasaP.length +1;
+this.dataservice.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7',che1: this.Check1 ,che2: this.Check2 ,che3: this.Check3 ,che4: this.Check4 ,che5: this.Check5 ,che6: this.Check6 ,che7: this.Check7});
+console.log(this.Datitos);
+this.dataservice.paso();
+}
+
+crear(){
+  this.showModall1 = true;
+}
+
+quitar(){
+  this.showModall1 = false;
+  
+ 
+ //na.value = "";
+
+  }
+  submitForm1(formData: any): void {
+    this.form3.reset();
+  }
+  RegresarD(na:any){
+    this.Check1 = false;
+    this.Check2 = false;
+    this.Check3 = false;
+    this.Check4 = false;
+    this.Check5 = false;
+    this.Check6 = false;
+    this.Check7 = false;
+    na.value = "";
+  }
 }
