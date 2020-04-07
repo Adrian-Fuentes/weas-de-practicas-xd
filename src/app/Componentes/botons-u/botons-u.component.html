@@ -37,7 +37,7 @@
                         <div class="form-group row">
                             <div class="col-sm-6">
                             <label >RFC</label>
-                            <input type="text"   value="" formControlName="rfc" #RF class="form-control" id="cr">
+                            <input type="text"  onkeyup="javascript:this.value=this.value.toUpperCase();"  value="" formControlName="rfc" #RF class="form-control" id="cr">
                             <!--Aqui se ponen los errores xdd-->
                             <div *ngIf="form.controls['rfc'].invalid && (form.controls['rfc'].dirty || form.controls['rfc'].touched)" >
                                 <div *ngFor="let validation2 of mensaje_rfc.rfc" >
@@ -126,7 +126,7 @@
                             </div>
                         </div>
                         <!--Parte 2-->
-                        <div style="background-color: #DEE1E1;padding: 2%;" formGroupName="chequeos2">
+                        <div style="background-color: #DEE1E1;padding: 2%;" formGroupName="chequeos">
                             <b><label >Solicitud de Línea de Credito</label></b><br>
                             <div class=" custom-control-inline">
                                 
@@ -144,7 +144,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD(na)" (click) = "quitar()" >Cancelar</button>
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na)" [disabled]="form3.invalid"  (click) = "quitar()">Guardar</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na)" [disabled]="form3.invalid"  >Guardar</button>
                         
                         </div>
                     </form>
