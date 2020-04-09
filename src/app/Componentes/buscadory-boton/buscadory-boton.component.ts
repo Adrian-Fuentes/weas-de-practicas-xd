@@ -64,16 +64,20 @@ mensaje_name:any;
             checado2: new FormControl(false),
             checado3: new FormControl(false),
             checado4: new FormControl(false),
+            checado5: new FormControl(false),
+            checado6: new FormControl(false),
+            checado7: new FormControl(false)
             //funcion que llama un .ts que hace la validacion de un grupo
             },requireCheckboxesToBeCheckedValidator()),
             //seccion del segundo grupo de checks
+            /*
             chequeos2: new FormGroup({
             checado5: new FormControl(false),
             checado6: new FormControl(false),
             checado7: new FormControl(false)
             //misma funcion para comprobar comoa arriba xD
           },requireCheckboxesToBeCheckedValidator())
-            })
+        */});
     
   }
   

@@ -56,10 +56,12 @@ bloq3 = false;
 form3:FormGroup;
 mensaje_name1:any;
 showModall1:boolean;
+CambiaP:any;
 Datitos = {
   nande: '',
   Fecha: 'GDFN123654IO7'
 }
+weaD:any;
   
   constructor(private dataservice:DatosService , private built:FormBuilder,private crearP:BuscadoryBotonComponent) {
     this.mensaje_name = {
@@ -108,16 +110,20 @@ Datitos = {
     checado2: new FormControl(false),
     checado3: new FormControl(false),
     checado4: new FormControl(false),
+    checado5: new FormControl(false),
+    checado6: new FormControl(false),
+    checado7: new FormControl(false)
     //funcion que llama un .ts que hace la validacion de un grupo
     },requireCheckboxesToBeCheckedValidator()),
     //seccion del segundo grupo de checks
+    /*
     chequeos2: new FormGroup({
     checado5: new FormControl(false),
     checado6: new FormControl(false),
     checado7: new FormControl(false)
     //misma funcion para comprobar comoa arriba xD
     },requireCheckboxesToBeCheckedValidator())
-    })
+  */});
     
   }
     
@@ -245,15 +251,35 @@ console.log(na.value);
 this.dataservice.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7',che1: this.Check1 ,che2: this.Check2 ,che3: this.Check3 ,che4: this.Check4 ,che5: this.Check5 ,che6: this.Check6 ,che7: this.Check7});
 console.log(this.Datitos);
 this.dataservice.paso();
-}
 
+this.Perfil = na.value;
+console.log("el nambre es:");
+console.log(this.Perfil);
+
+console.log("los datos son:");
+console.log(this.weaD);
+
+
+
+
+
+this.quitar();
+
+}
+quitar2(){
+  this.showModall1 = false;
+}
 crear(){
   this.showModall1 = true;
 }
 
 quitar(){
   this.showModall1 = false;
-  
+  this.weaD = this.dataservice.pasaP.find(resul => resul.id === this.id);
+console.log("los datos son:");
+console.log(this.weaD);
+this.Perfil = this.weaD.nande;
+console.log(this.Perfil);
  
  //na.value = "";
 
