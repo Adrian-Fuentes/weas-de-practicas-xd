@@ -104,15 +104,11 @@ export class TablaUsComponent implements OnInit {
     checado2: new FormControl(false),
     checado3: new FormControl(false),
     checado4: new FormControl(false),
-    //funcion que llama un .ts que hace la validacion de un grupo
-    },requireCheckboxesToBeCheckedValidator()),
-    //seccion del segundo grupo de checks
-    chequeos2: new FormGroup({
     checado5: new FormControl(false),
     checado6: new FormControl(false),
     checado7: new FormControl(false)
-    //misma funcion para comprobar comoa arriba xD
-    },requireCheckboxesToBeCheckedValidator())
+    //funcion que llama un .ts que hace la validacion de un grupo
+    },requireCheckboxesToBeCheckedValidator()),
     })
     
   }
@@ -208,6 +204,7 @@ console.log(na.value);
 this.dataservice.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7',che1: this.Check1 ,che2: this.Check2 ,che3: this.Check3 ,che4: this.Check4 ,che5: this.Check5 ,che6: this.Check6 ,che7: this.Check7});
 console.log(this.Datitos);
 this.dataservice.paso();
+this.Perfil1 = na.value;
 }
 
 crear(){

@@ -64,6 +64,7 @@ Datitos = {
 weaD:any;
   
   constructor(private dataservice:DatosService , private built:FormBuilder,private crearP:BuscadoryBotonComponent) {
+    this.Perfil;
     this.mensaje_name = {
       'name': [
         { type: 'required', message: 'El nombre es Requerido*' },
@@ -197,17 +198,19 @@ weaD:any;
     // this.dataservice.DatoP(this.Perfil);
     this.rest(EM,RF,name1);
     this.hide();
-    this.Perfil = "no"
+    //Este es al guardar el usuario (no afecta)
+    this.Perfil = "no";
     return(this.Perfil);
   }
   selectChangeHandler (event: any) {
     //update the ui
     this.Perfil = event.target.value;
     console.log(this.Perfil);
+    
     if(event.target.value == "Ce"){
       this.usu();
     }else{
-      console.log("no paso xd");
+      console.log("no paso xd (bien)");
       
     }
     
@@ -242,8 +245,10 @@ weaD:any;
   this.activa = true;
   */
  // PARTE DEL CREAR PERFILES ----------------------------------------------------------------------------------------------------------------------
- Guardar(na:any){
+ Guardar(na:any,F:any){
   console.log("avr");
+  
+  
   
 console.log(na.value);
 
@@ -258,6 +263,14 @@ console.log(this.Perfil);
 
 console.log("los datos son:");
 console.log(this.weaD);
+console.log("el valor es:" );
+console.log(F.value);
+//Detecta el valor esta en crear, PERO imprime el de elegir.... :s
+F.value = this.Perfil;
+//no se aplica el cambio???
+console.log(F.value);
+//no imprime ningun valor ):
+
 
 
 
@@ -279,6 +292,7 @@ quitar(){
 console.log("los datos son:");
 console.log(this.weaD);
 this.Perfil = this.weaD.nande;
+//Si me da el perfil pero no se coloca en el select :/
 console.log(this.Perfil);
  
  //na.value = "";

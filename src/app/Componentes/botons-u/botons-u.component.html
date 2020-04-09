@@ -49,7 +49,7 @@
                         </div>
                         <div class="col-sm-6" >
                             <label >Perfil</label>
-                            <select name="" class="form-control"  [(value)]="Perfil" (change)="selectChangeHandler($event)" >
+                            <select name="" class="form-control"  [(value)]="Perfil" #F (change)="selectChangeHandler($event)" >
                                 <option value="no">Elige un perfil</option>
                                 <option value="{{item.nande}}" *ngFor="let item of dat1">{{item.nande}}</option>
                                 <option value="Ce" (click)="usu()">Crear Perfil</option>
@@ -144,7 +144,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD(na)" (click) = "quitar2()" >Cancelar</button>
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na)" [disabled]="form3.invalid"  >Guardar</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na,F)" [disabled]="form3.invalid"  >Guardar</button>
                         
                         </div>
                     </form>
