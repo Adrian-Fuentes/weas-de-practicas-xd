@@ -256,17 +256,30 @@ this.Perfil = na.value;
 console.log("el nambre es:");
 console.log(this.Perfil);
 
+console.log("los datos son:");
+console.log(this.weaD);
+
+
+
+
+
 this.quitar();
 
 }
-
+quitar2(){
+  this.showModall1 = false;
+}
 crear(){
   this.showModall1 = true;
 }
 
 quitar(){
   this.showModall1 = false;
-  
+  this.weaD = this.dataservice.pasaP.find(resul => resul.id === this.id);
+console.log("los datos son:");
+console.log(this.weaD);
+this.Perfil = this.weaD.nande;
+console.log(this.Perfil);
  
  //na.value = "";
 
