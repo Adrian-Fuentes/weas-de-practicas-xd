@@ -33,7 +33,7 @@
                 {{item.email}}
             </td>
             <td>
-                <a href="#" (click) = "show(id,Name,RFC,Email,per)" class='fa'  style="margin-left:50% ;" >&#xf304;</a>
+                <a href="#" (click) = "show(id,Name,RFC,Email)" class='fa'  style="margin-left:50% ;" >&#xf304;</a>
                 <span style="margin-right: 15%;">   
                 </span>
                 <a href="#" (click)="borrar(id)"  class='fa' >&#xf1f8;</a>
@@ -96,9 +96,9 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-sm-6" formGroupName="Perfiless">
                                     <label >Perfil</label>
-                                    <select name="" class="form-control" [(value)]="Perfil1" #per (change)="selectChangeHandler($event)">
+                                    <select name="" class="form-control"  formControlName="Cambios2" [(ngModel)]="CreP"  (change)="selectChangeHandler($event)">
                                         <option value="no">Escoge Un Perfil</option>
                                         <option value="{{item.nande}}" *ngFor="let item of dat">{{item.nande}}</option>
                                         <option value="Crea" (click)="prender()">Crear Un Perfil</option>
@@ -121,7 +121,7 @@
                             <!--Botones de cancelar y guardar-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="rest()" (click) = "hide()" >Cancelar</button>
-                                <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click) = "setData(Name,RFC,Email)" [disabled]="form1.invalid || Perfil1 == 'no' || Perfil1== 'Crea'" (click) = "hide()">Guardar</button>      
+                                <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click) = "setData(Name,RFC,Email)" [disabled]="form1.invalid || CreP == 'no' || CreP== 'Crea'" (click) = "hide()">Guardar</button>      
                             </div>
                         </form>    
                     </div>

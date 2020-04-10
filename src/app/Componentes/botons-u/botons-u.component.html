@@ -47,9 +47,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6" >
+                        <div class="col-sm-6" formGroupName="Perfilees">
                             <label >Perfil</label>
-                            <select name="" class="form-control"  [(value)]="Perfil" #F (change)="selectChangeHandler($event)" >
+                            <select name="" class="form-control"  formControlName="Lacosa" [(value)]="Perfil" [(ngModel)]="Cambios"  (change)="selectChangeHandler($event)" >
                                 <option value="no">Elige un perfil</option>
                                 <option value="{{item.nande}}" *ngFor="let item of dat1">{{item.nande}}</option>
                                 <option value="Ce" (click)="usu()">Crear Perfil</option>
@@ -73,7 +73,7 @@
                         <!--BOTONES al final xD-->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)="rest(EM,RF,name1)"  >Cancelar</button>
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" [disabled]="form.invalid || Perfil == 'no' || Perfil == 'Ce'" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" [disabled]="form.invalid || Cambios == 'no' || Cambios == 'Ce'" (click) = "resetData(EM,RF,name1)"  >Guardar</button>      
                         </div>
                     </form>
               </div>
@@ -144,7 +144,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-dark" data-dismiss="modal" (click)="RegresarD(na)" (click) = "quitar2()" >Cancelar</button>
-                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na,F)" [disabled]="form3.invalid"  >Guardar</button>
+                            <button type="button" class="btn btn-dark" data-dismiss="modal" type="submit" (click)= "Guardar(na)" [disabled]="form3.invalid">Guardar</button>
                         
                         </div>
                     </form>

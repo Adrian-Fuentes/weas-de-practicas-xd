@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
-import { FormGroup , FormBuilder, Validators, FormControl } from "@angular/forms";
+import { FormGroup , FormBuilder, Validators, FormControl, FormGroupName } from "@angular/forms";
 import { BuscadoryBotonComponent } from '../buscadory-boton/buscadory-boton.component';
 import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-checkboxes-to-be-checked.validator"
 
@@ -61,8 +61,10 @@ Datitos = {
   nande: '',
   Fecha: 'GDFN123654IO7'
 }
+Perfilees:any;
+LaSeleccion:any;
 weaD:any;
-  
+  Cambios:any = 'no';
   constructor(private dataservice:DatosService , private built:FormBuilder,private crearP:BuscadoryBotonComponent) {
     this.Perfil;
     this.mensaje_name = {
@@ -96,6 +98,10 @@ weaD:any;
 
        email: ['',Validators.compose([
         Validators.required, Validators.email])],
+        Perfilees: new FormGroup({
+          Lacosa: new FormControl()
+    
+        })
 
        
     });
@@ -124,7 +130,10 @@ weaD:any;
     checado7: new FormControl(false)
     //misma funcion para comprobar comoa arriba xD
     },requireCheckboxesToBeCheckedValidator())
-  */});
+  */
+    
+    
+  });
     
   }
     
@@ -174,7 +183,7 @@ weaD:any;
 
     // ingresar el objeto al array
 
-    this.dataservice.arr.push({id: this.id, name: this.name, rfc: this.rfc, email: this.email, perfil: this.Perfil}); 
+    this.dataservice.arr.push({id: this.id, name: this.name, rfc: this.rfc, email: this.email, perfil: this.Cambios}); 
     
     console.log("avr cadenacion xd");
     console.log(this.dataservice.arr2);
@@ -204,8 +213,8 @@ weaD:any;
   }
   selectChangeHandler (event: any) {
     //update the ui
-    this.Perfil = event.target.value;
-    console.log(this.Perfil);
+    this.Cambios = event.target.value;
+    console.log(this.Cambios);
     
     if(event.target.value == "Ce"){
       this.usu();
@@ -245,7 +254,7 @@ weaD:any;
   this.activa = true;
   */
  // PARTE DEL CREAR PERFILES ----------------------------------------------------------------------------------------------------------------------
- Guardar(na:any,F:any){
+ Guardar(na:any){
   console.log("avr");
   
   
@@ -257,6 +266,10 @@ this.dataservice.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7'
 console.log(this.Datitos);
 this.dataservice.paso();
 
+this.Cambios = na.value;
+console.log("cambios");
+
+/*
 this.Perfil = na.value;
 console.log("el nambre es:");
 console.log(this.Perfil);
@@ -270,7 +283,7 @@ F.value = this.Perfil;
 //no se aplica el cambio???
 console.log(F.value);
 //no imprime ningun valor ):
-
+*/
 
 
 
@@ -288,6 +301,7 @@ crear(){
 
 quitar(){
   this.showModall1 = false;
+  /*
   this.weaD = this.dataservice.pasaP.find(resul => resul.id === this.id);
 console.log("los datos son:");
 console.log(this.weaD);
@@ -296,7 +310,7 @@ this.Perfil = this.weaD.nande;
 console.log(this.Perfil);
  
  //na.value = "";
-
+*/
   }
   submitForm1(formData: any): void {
     this.form3.reset();

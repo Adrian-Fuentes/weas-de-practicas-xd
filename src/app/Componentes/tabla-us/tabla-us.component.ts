@@ -52,6 +52,8 @@ export class TablaUsComponent implements OnInit {
     nande: '',
     Fecha: 'GDFN123654IO7'
   }
+  Perfiless:any;
+  CreP:any;
   showModall1:Boolean = false;
   id:number;
   constructor(public dataservice: DatosService, public botons:BotonsUComponent,private fb:FormBuilder) {
@@ -90,7 +92,10 @@ export class TablaUsComponent implements OnInit {
         Validators.pattern('^([A-ZÑ\x26]{3,4}([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([A-Z]|[0-9]){2}([A]|[0-9]){1})?$') ])],
 
        email: ['',Validators.compose([
-        Validators.required, Validators.email])]
+        Validators.required, Validators.email])],
+        Perfiless: new FormGroup({
+          Cambios2: new FormControl()
+        })
     });
     //PARTE DEL CREAR PERFILES----------------------------------------------------------------------------------------------------------------------
     this.form3 = new FormGroup({
@@ -118,7 +123,7 @@ export class TablaUsComponent implements OnInit {
    
   
    //MUESTRA EL POP-UP
-  show(id:number,Name:any,RFC:any,Email:any,per:any){
+  show(id:number,Name:any,RFC:any,Email:any){
     this.dat = this.dataservice.pasaP;
     
     console.log("El id es: ");
@@ -129,16 +134,16 @@ export class TablaUsComponent implements OnInit {
     Name.value = this.info.name;
     RFC.value = this.info.rfc;
     Email.value = this.info.email;
-    per.value = this.Perfil1;
-    this.Perfil1 = this.info.perfil;
+    
+    this.CreP = this.info.perfil;
     
     
     console.log("entro");
-    console.log(this.Perfil1);
+    console.log(this.CreP);
     console.log(
      this.info.perfil);
      this.showModal = true;
-    return(this.info,this.Perfil1);
+    return(this.info,this.CreP);
   }
   //OCULTA EL POP-UP
   hide(){
@@ -156,7 +161,7 @@ export class TablaUsComponent implements OnInit {
      this.info.name = Name.value;
      this.info.rfc = RFC.value;
      this.info.email = Email.value;
-     this.info.perfil = this.Perfil1;
+     this.info.perfil = this.CreP;
      
    // darle el valor al .info owo
     
@@ -166,11 +171,11 @@ export class TablaUsComponent implements OnInit {
   }
   selectChangeHandler (event: any) {
     //update the ui
-    this.Perfil1 = event.target.value;
+    this.CreP = event.target.value;
     console.log("El option es:");
     
-    console.log(this.Perfil1);
-    if (this.Perfil1 == "Crea"){
+    console.log(this.CreP);
+    if (this.CreP == "Crea"){
       console.log("si agarro xd");
       this.crear()
       
@@ -205,6 +210,7 @@ this.dataservice.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7'
 console.log(this.Datitos);
 this.dataservice.paso();
 this.Perfil1 = na.value;
+this.CreP = na.value;
 }
 
 crear(){
