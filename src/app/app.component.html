@@ -1,3 +1,83 @@
 
-<app-tituloy-encierro>
-<router-outlet></router-outlet>
+   
+
+    <mat-drawer-container class="example-container" autosize >
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <div class="example-sidenav-content" >
+                <!--Boton que despliega el sidebar-->
+                <button type="button" mat-button (click)="drawer.toggle()"  class="material-icons">
+                  &#xe5d2;
+                </button>
+              </div>
+              
+              <a class="navbar-brand" href="#" style="margin-left: 2%;width:15%;" >
+                <img src="https://portalgratuito.interfactura.com/Images/IF_logo_L.png" alt="Logo" style="width:100%;">
+              </a>
+        </nav>
+            <mat-drawer #drawer class="example-sidenav" mode="side" style="border: none;">
+                <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
+                    <div class="example-sidenav-content" >
+                        <button type="button" mat-button (click)="drawer.toggle()"  class="material-icons">
+                          &#xe5d2;
+                        </button>
+                      </div>
+                      
+                    </nav>
+                  
+                
+                <p>Auto-resizing sidenav</p>
+                <div>
+                        <div class="bg-dark ">
+                            <span >Tesoreria</span> <i class="material-icons" >&#xe5cc;</i> 
+                        </div>
+
+                        <div>
+                            <span>Dispocisiones</span> <i class="material-icons" >&#xe5cc;</i> 
+                        </div>
+
+                        <div>
+                            <span>Gestión de Líneas</span> <i class="material-icons" >&#xe5cc;</i> 
+                        </div>
+
+                        <div>
+                            <span>Créditos</span> <i class="material-icons" >&#xe5cc;</i> 
+                        </div>
+
+                        <div>
+                            <span>Clientes</span> <i class="material-icons" >&#xe5cc;</i> 
+                        </div>
+
+                        <div (click)="Confi = !Confi">
+                            <span>Configuración (dar click)</span> <i class="material-icons" >&#xe5cc;</i> 
+                            
+                        </div>
+                        <div *ngIf="Confi">
+
+                            <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
+                            <button (click)="showFiller = !showFiller" mat-raised-button>
+                                Gestion de Usuarios
+                            </button>
+                        </div>
+                </div>
+                
+                
+            </mat-drawer>
+      
+        
+        
+        <div class="jumbotron text-center" *ngIf="!showFiller">
+            <h1 class="display-1" > Bienvenido </h1>
+        </div>
+        <!--Se activa el componente-->
+        <app-tituloy-encierro *ngIf="showFiller"></app-tituloy-encierro>
+        <router-outlet></router-outlet>
+        
+    </mat-drawer-container>
+    
+
+
+  
+
+
+
+  

@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {ReactiveFormsModule} from '@angular/forms';
+import {MatSidenavModule} from '@angular/material/sidenav';
 // componentes xd
 import { AppComponent } from './app.component';
 import { TablaComponent } from './componentes/tabla/tabla.component';
@@ -30,7 +31,8 @@ import { BotonsUComponent } from './componentes/botons-u/botons-u.component';
     BrowserAnimationsModule,
     FormsModule,
     MatCheckboxModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSidenavModule
   ],
   providers: [BuscadoryBotonComponent],
   bootstrap: [AppComponent]
