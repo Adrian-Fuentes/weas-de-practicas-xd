@@ -9,4 +9,5 @@ export class AppComponent {
   title = 'TesteoPractica';
   showFiller = false;
   Confi = false;
+  oculta = false;
 }
