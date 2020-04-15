@@ -1,17 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
-import { BotonsUComponent } from '../botons-u/botons-u.component';
+
 import { FormGroup , FormBuilder, Validators,FormControl } from "@angular/forms";
 import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-checkboxes-to-be-checked.validator"
 
 
 @Component({
-  providers:[BotonsUComponent],
+  
   selector: 'app-tabla-us',
   templateUrl: './tabla-us.component.html',
   styleUrls: ['./tabla-us.component.css']
 })
 export class TablaUsComponent implements OnInit {
+  Sefiltra:any;
+
+
   showModal: boolean;
   name: string; 
   rfc:any;
@@ -56,7 +59,7 @@ export class TablaUsComponent implements OnInit {
   CreP:any;
   showModall1:Boolean = false;
   id:number;
-  constructor(public dataservice: DatosService, public botons:BotonsUComponent,private fb:FormBuilder) {
+  constructor(public dataservice: DatosService, private fb:FormBuilder) {
     // Se declara los valores del arr para activar el NgFor
     this.dat = this.dataservice.pasaP;
 

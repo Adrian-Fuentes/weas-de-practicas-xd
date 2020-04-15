@@ -14,7 +14,8 @@
                 <img src="https://portalgratuito.interfactura.com/Images/IF_logo_L.png" alt="Logo" style="width:100%;">
               </a>
         </nav>
-            <mat-drawer #drawer class="example-sidenav" mode="side" style="border: none;background-color:#DEE1E1;">
+            <!--Aqui esta donde estan las weas del menú-->
+            <mat-drawer #drawer class="example-sidenav" mode="side" style="border: none;background-color:#DEE1E1; width: 20%;">
                 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
                     <div class="example-sidenav-content" >
                         <button type="button" mat-button (click)="drawer.toggle()" (click)="oculta = !oculta" class="material-icons">
@@ -26,7 +27,7 @@
                     <p></p>
                   
                 
-                <div style="font-size: 130%;" >
+                <div style="font-size: 130%;margin:1%" >
                         <div>
                             <button class="btn">
                                 <i class='fas fa-money-bill-wave'></i>
@@ -68,15 +69,18 @@
                         <div (click)="Confi = !Confi">
                             <button class="btn">
                                 <i class="fa fa-gear"></i>
-                                  Configuración (dar click)
+                                Configuración 
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button>  
                             
                         </div>
-                        <div *ngIf="Confi">
+                        <div *ngIf="Confi" class="bg-light text-center">
 
-                            <p *ngIf="showFiller">Lorem, ipsum dolor sit amet consectetur.</p>
-                            <button (click)="showFiller = !showFiller" mat-raised-button>
+                            
+                            <button  class="btn" mat-raised-button>
+                                Gestion de Fondeadres
+                            </button>
+                            <button (click)="showFiller = !showFiller" class="btn" mat-raised-button>
                                 Gestion de Usuarios
                             </button>
                         </div>

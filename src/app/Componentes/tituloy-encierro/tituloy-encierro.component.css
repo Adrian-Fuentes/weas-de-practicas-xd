@@ -5,8 +5,9 @@
     border-radius: 2px;
 }
 div{
+   
     color: #06266F;
-    background-color:#DEE1E1;
+    
     ;
 }
 div button{
@@ -18,4 +19,7 @@ div button{
 }
 #usu{
     margin-left: 0%;
+}
+body{
+    background-color:rgba(222,225,225,.5);
 }

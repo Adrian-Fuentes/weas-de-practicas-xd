@@ -2,17 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { FormGroup , FormBuilder, Validators, FormControl, FormGroupName } from "@angular/forms";
 import { BuscadoryBotonComponent } from '../buscadory-boton/buscadory-boton.component';
-import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-checkboxes-to-be-checked.validator"
+import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-checkboxes-to-be-checked.validator";
+import { TablaUsComponent } from '../tabla-us/tabla-us.component';
+
 
 // wea normal
 @Component({
-  providers:[BuscadoryBotonComponent],
+  providers:[BuscadoryBotonComponent,TablaUsComponent],
   selector: 'app-botons-u',
   templateUrl: './botons-u.component.html',
   styleUrls: ['./botons-u.component.css']
 })
 export class BotonsUComponent implements OnInit {
   //datos de ests componente
+
+  LosFiltra:any;
+
+
   form: FormGroup;
   showModal: boolean;
   Cnombre: string;
@@ -65,7 +71,8 @@ Perfilees:any;
 LaSeleccion:any;
 weaD:any;
   Cambios:any = 'no';
-  constructor(private dataservice:DatosService , private built:FormBuilder,private crearP:BuscadoryBotonComponent) {
+  constructor(private dataservice:DatosService , private built:FormBuilder,private crearP:BuscadoryBotonComponent, private Conexion:TablaUsComponent) {
+    this.LosFiltra = Conexion.Sefiltra;
     this.Perfil;
     this.mensaje_name = {
       'name': [

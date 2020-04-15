@@ -2,6 +2,7 @@
 <div class="container">
 
     <table class="table text-light col ">
+       
         <thead>
         <tr>
             <!--titulos-->
@@ -22,7 +23,7 @@
         <tr *ngIf="Datos.length == 0">
             <th colspan="3" class="text-danger">No hay Usuarios*</th>
         </tr>
-        <tr  *ngFor="let item of Datos; let id = index">
+        <tr  *ngFor="let item of Datos | filtro:Sefiltra" >
             <td>
                {{item.name}}
             </td>
