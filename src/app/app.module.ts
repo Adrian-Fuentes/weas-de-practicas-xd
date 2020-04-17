@@ -14,7 +14,7 @@ import { BuscadoryBotonComponent } from './componentes/buscadory-boton/buscadory
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablaUsComponent } from './componentes/tabla-us/tabla-us.component';
 import { BotonsUComponent } from './componentes/botons-u/botons-u.component';
-import { FiltroPipe } from './Pipe/filtro.pipe';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { FiltroPipe } from './Pipe/filtro.pipe';
     BuscadoryBotonComponent,
     TablaUsComponent,
     BotonsUComponent,
-    FiltroPipe
+   
   ],
   imports: [
     BrowserModule,

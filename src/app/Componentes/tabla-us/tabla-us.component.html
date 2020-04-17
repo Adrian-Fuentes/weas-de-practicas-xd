@@ -23,7 +23,8 @@
         <tr *ngIf="Datos.length == 0">
             <th colspan="3" class="text-danger">No hay Usuarios*</th>
         </tr>
-        <tr  *ngFor="let item of Datos | filtro:Sefiltra" >
+        
+        <tr  *ngFor="let item of Datos; let id = index" >
             <td>
                {{item.name}}
             </td>
