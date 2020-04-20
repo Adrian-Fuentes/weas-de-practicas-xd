@@ -12,8 +12,8 @@
             <!--SECCION USUARIO-->
             <mat-tab label="Usuario">
                 <div style="width: 100%; height: 10px;background-color: white;"></div>
-                <app-botons-u></app-botons-u>
-                <app-tabla-us></app-tabla-us>
+                <app-botons-u (search)="handleSearch($event)"></app-botons-u>
+                <app-tabla-us ></app-tabla-us>
             </mat-tab>
             <!--SECCION PERFIL-->
             <mat-tab label="Perfil"  >

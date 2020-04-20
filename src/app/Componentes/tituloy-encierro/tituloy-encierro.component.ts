@@ -9,7 +9,10 @@ import { Component, OnInit} from '@angular/core';
 })
 
 export class TituloyEncierroComponent implements OnInit {
- 
+  handleSearch(value:string){
+    console.log(value);
+    
+  }
   ClUsuario1: string;
   ClPerfil1: string;
   oculta1: string;

@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { FormGroup , FormBuilder, Validators, FormControl, FormGroupName } from "@angular/forms";
 import { BuscadoryBotonComponent } from '../buscadory-boton/buscadory-boton.component';
 import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-checkboxes-to-be-checked.validator";
 import { TablaUsComponent } from '../tabla-us/tabla-us.component';
+import { debounceTime } from 'rxjs/operators';
 
 
 // wea normal
@@ -140,12 +141,27 @@ weaD:any;
   */
     
     
-  });
+ //TERMINA xD------------------------------------------------------------------------------------------------------------------------------------
+});
+   
+  }//se acaba el constructor
+
+  //cambios para el buscador? --------------------------------------------------------------------------------------------
+  ngOnInit(): void {
+    this.search.valueChanges
+    .pipe(
+      debounceTime(300)
+    )
+    
+    .subscribe(value => this.searchEmitter.emit(value));
+    
     
   }
-    
-    //TERMINA xD------------------------------------------------------------------------------------------------------------------------------------
-  //abrir la wea de crear
+    search = new FormControl('')
+
+    @Output('search') searchEmitter = new EventEmitter<string>();
+   
+  //abrir la wea de crear------------------------------------------------------------------------------------------------
   show(){
     // obtener datos del perfil (tabla 2)
     this.dat1 = this.dataservice.pasaP;
@@ -248,8 +264,7 @@ weaD:any;
     name1.value = "";
     this.hide();
   }
-  ngOnInit(): void {
-  }
+  
 
   /*RECORDATORIO
   HACER UNA FUNCION QUE ACTIVE EL NGFOR DE LA TABLA CON LOS SIG. DATOS: 

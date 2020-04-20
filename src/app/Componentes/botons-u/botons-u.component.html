@@ -1,7 +1,7 @@
 <div class=" container">
 
     <div class="input-group row container"  id="xd">
-        <input type="search"  class="form-control col-sm-3"  [(ngModel)]="LosFiltra" name="LosFiltra" id="busca">
+        <input [formControl]="search" type="search"  class="form-control col-sm-3"   id="busca">
     <div class="input-group-append">
       <input class="fa  input-group-text" id="vus" type="button" value="&#xf002;">
     </div>
