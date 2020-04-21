@@ -59,7 +59,10 @@ export class TablaUsComponent implements OnInit {
   CreP:any;
   showModall1:Boolean = false;
   id:number;
+  
+  Busqueda:string = '';
   constructor(public dataservice: DatosService, private fb:FormBuilder) {
+   
     // Se declara los valores del arr para activar el NgFor
     this.dat = this.dataservice.pasaP;
 
@@ -124,8 +127,15 @@ export class TablaUsComponent implements OnInit {
     //TERMINA xD------------------------------------------------------------------------------------------------------------------------------------
 
    //avr -----------------------------------------------------
+      ObtenerDato(valor:string){
+        console.log("avrrrrrrrrr-----");
+        console.log(valor);
+        this.Busqueda = valor;
+       console.log(this.Busqueda);
+       return this.Busqueda;
+        
+      }
       
-
 
    //sin vr ---------------------------------------------------
   
