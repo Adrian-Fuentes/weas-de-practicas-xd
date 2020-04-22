@@ -6,7 +6,7 @@ import {requireCheckboxesToBeCheckedValidator} from "../buscadory-boton/require-
 
 
 @Component({
-  
+
   selector: 'app-tabla-us',
   templateUrl: './tabla-us.component.html',
   styleUrls: ['./tabla-us.component.css']
@@ -16,7 +16,7 @@ export class TablaUsComponent implements OnInit {
 
 
   showModal: boolean;
-  name: string; 
+  name: string;
   rfc:any;
   email:string;
   name2: string;
@@ -31,7 +31,7 @@ export class TablaUsComponent implements OnInit {
   Datos:Array<object> = [{
     id:1
   }
-    
+
   ];
   activa: boolean = false;
   wea1: any;
@@ -42,7 +42,7 @@ export class TablaUsComponent implements OnInit {
   Perfil1 = 'no';
   dat:any;
   //crear perfil
-  
+
   Check1 = false;
   Check2 = false;
   Check3 = false;
@@ -59,10 +59,10 @@ export class TablaUsComponent implements OnInit {
   CreP:any;
   showModall1:Boolean = false;
   id:number;
-  
+
   Busqueda:string = '';
   constructor(public dataservice: DatosService, private fb:FormBuilder) {
-  
+
     // Se declara los valores del arr para activar el NgFor
     this.dat = this.dataservice.pasaP;
 
@@ -86,7 +86,7 @@ export class TablaUsComponent implements OnInit {
         'email': [
           { type: 'required', message: 'El email es Requerido*' },
           { type: 'email', message: 'Agrega un formato valido*'}
-        ]}  
+        ]}
 
     this.form1 = fb.group({
       name: ['',Validators.compose([
@@ -121,9 +121,9 @@ export class TablaUsComponent implements OnInit {
     //funcion que llama un .ts que hace la validacion de un grupo
     },requireCheckboxesToBeCheckedValidator()),
     })
-    
+
   }
-    
+
     //TERMINA xD------------------------------------------------------------------------------------------------------------------------------------
 
    //avr -----------------------------------------------------
@@ -133,16 +133,16 @@ export class TablaUsComponent implements OnInit {
         this.Busqueda = valor;
        console.log(this.Busqueda);
        return this.Busqueda;
-        
+
       }
-      
+
 
    //sin vr ---------------------------------------------------
-  
+
    //MUESTRA EL POP-UP
   show(id:number,Name:any,RFC:any,Email:any){
     this.dat = this.dataservice.pasaP;
-    
+
     console.log("El id es: ");
     console.log(id);
 
@@ -151,10 +151,10 @@ export class TablaUsComponent implements OnInit {
     Name.value = this.info.name;
     RFC.value = this.info.rfc;
     Email.value = this.info.email;
-    
+
     this.CreP = this.info.perfil;
-    
-    
+
+
     console.log("entro");
     console.log(this.CreP);
     console.log(
@@ -179,9 +179,9 @@ export class TablaUsComponent implements OnInit {
      this.info.rfc = RFC.value;
      this.info.email = Email.value;
      this.info.perfil = this.CreP;
-     
+
    // darle el valor al .info owo
-    
+
   }
   submitForm(formData: any): void {
     this.form1.reset();
@@ -190,19 +190,19 @@ export class TablaUsComponent implements OnInit {
     //update the ui
     this.CreP = event.target.value;
     console.log("El option es:");
-    
+
     console.log(this.CreP);
     if (this.CreP == "Crea"){
       console.log("si agarro xd");
       this.crear()
-      
+
     }
-    
+
   }
   borrar(id:number){
-    
+
     console.log("borra >:3");
-  
+
       this.Datos.splice(id,1);
 
   }
@@ -210,16 +210,20 @@ export class TablaUsComponent implements OnInit {
   prender(){
     this.crear();
     console.log("Se activo");
-    
+
   }
   ngOnInit(): void {
-
+    this.dataservice.filterValue$.subscribe(value => {
+      if(value != ""){
+        alert("el valor está en tabla-us.component: " + value);
+      }
+    });
   }
   //---------------------------------------------------------------------------------------------------------------------------------------------
 // PARTE DEL CREAR PERFILES ----------------------------------------------------------------------------------------------------------------------
 Guardar(na:any){
   console.log("avr");
-  
+
 console.log(na.value);
 
   this.id = this.dataservice.pasaP.length +1;
@@ -236,8 +240,8 @@ crear(){
 
 quitar(){
   this.showModall1 = false;
-  
- 
+
+
  //na.value = "";
 
   }
