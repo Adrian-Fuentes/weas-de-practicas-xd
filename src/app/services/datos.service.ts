@@ -27,15 +27,16 @@ export class DatosService {
   toTable() {
     console.log( this.arr);
   }
- 
+
  PasaValor(value:string){
    console.log("si se paso xd");
    console.log("el valor es:");
    console.log(value);
+
+  }
+  
    
    
-   
- }
 
  
   paso() {

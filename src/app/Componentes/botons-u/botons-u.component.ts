@@ -147,19 +147,15 @@ weaD:any;
   }//se acaba el constructor
 
   //cambios para el buscador? --------------------------------------------------------------------------------------------
-  ngOnInit(): void {
-    this.search.valueChanges
-    .pipe(
-      debounceTime(300)
-    )
-    
-    .subscribe(value => this.searchEmitter.emit(value));
+  ngOnInit() {
+    this.search.valueChanges.pipe( debounceTime(300) ).subscribe(value => this.searchEmitter.emit(value));
     
     
   }
     search = new FormControl('')
 
     @Output('search') searchEmitter = new EventEmitter<string>();
+    
    
   //abrir la wea de crear------------------------------------------------------------------------------------------------
   show(){

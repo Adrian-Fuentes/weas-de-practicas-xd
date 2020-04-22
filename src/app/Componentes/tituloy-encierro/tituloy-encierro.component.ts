@@ -3,6 +3,7 @@ import { DatosService } from 'src/app/services/datos.service';
 import { TablaUsComponent } from '../tabla-us/tabla-us.component';
 
 
+
 @Component({
   providers:[DatosService,TablaUsComponent],
   selector: 'app-tituloy-encierro',
@@ -10,8 +11,8 @@ import { TablaUsComponent } from '../tabla-us/tabla-us.component';
   styleUrls: ['./tituloy-encierro.component.css'],
   inputs:['../tabla.component/tabla.component.ts']
 })
-
 export class TituloyEncierroComponent implements OnInit {
+  
   handleSearch(value:string){
     //obtiene el valor del texto
     console.log(value);
@@ -20,7 +21,8 @@ export class TituloyEncierroComponent implements OnInit {
     console.log(this.ValorDado);
     //envia el valor al servicio
     this.tabla.ObtenerDato(this.ValorDado)
-    this.service.PasaValor(this.ValorDado);
+   this.service.PasaValor(this.ValorDado);
+  
   }
   ValorDado:string;
   ClUsuario1: string;
