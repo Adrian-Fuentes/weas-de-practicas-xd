@@ -12,7 +12,7 @@ export class DatosService {
   pasaP  = [{id: 1 , nande: 'Aprobado', Fecha: 'GDFN123654IO7', che1: true,che2: true,che3: true,che4: true,che5: true,che6: true,che7: true}];
   ident: number;
   PerfilSe:string;
-  
+  ValuePasa = '';
   constructor() {
   }
   /*
@@ -32,7 +32,8 @@ export class DatosService {
    console.log("si se paso xd");
    console.log("el valor es:");
    console.log(value);
-
+   this.ValuePasa = value
+   return (this.ValuePasa);
   }
   
    
