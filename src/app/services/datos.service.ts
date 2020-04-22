@@ -25,6 +25,7 @@ export class DatosService {
      this.value.next(value);
   }
 
+  ValuePasa = '';
   constructor() {
   }
   /*
@@ -47,6 +48,8 @@ export class DatosService {
 
    this.setFiltervalue = value;
 
+   this.ValuePasa = value;
+   return (this.ValuePasa);
   }
 
 

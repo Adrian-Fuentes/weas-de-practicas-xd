@@ -63,6 +63,7 @@ export class TablaUsComponent implements OnInit {
   Busqueda:string = '';
   constructor(public dataservice: DatosService, private fb:FormBuilder) {
 
+  this.Busqueda = this.dataservice.ValuePasa;
     // Se declara los valores del arr para activar el NgFor
     this.dat = this.dataservice.pasaP;
 
@@ -130,10 +131,12 @@ export class TablaUsComponent implements OnInit {
       ObtenerDato(valor:string){
         console.log("avrrrrrrrrr-----");
         console.log(valor);
-        this.Busqueda = valor;
+      /*  this.Busqueda = valor;
        console.log(this.Busqueda);
        return this.Busqueda;
 
+       return (this.Busqueda);
+        */
       }
 
 
