@@ -10,7 +10,7 @@ export class FiltrosPipe implements PipeTransform {
     console.log(arg);
 
     console.log(value);
-    if(arg == '') {return (value)};
+    if(arg == '') return (value);
 
     return (value.filter(item => item.name.includes(arg)) )
   }

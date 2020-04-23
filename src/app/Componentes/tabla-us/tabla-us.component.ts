@@ -29,7 +29,8 @@ export class TablaUsComponent implements OnInit {
   avr: any ;
   info:any;
   Datos:Array<object> = [{
-    id:1
+    id:1,
+    name:''
   }
 
   ];
@@ -218,8 +219,12 @@ export class TablaUsComponent implements OnInit {
   ngOnInit(): void {
     this.dataservice.filterValue$.subscribe(value => {
       if(value != ""){
-        alert("el valor está en tabla-us.component: " + value);
+       
+         this.Busqueda = value;
+      }else{
+        this.Busqueda = '';
       }
+
     });
   }
   //---------------------------------------------------------------------------------------------------------------------------------------------

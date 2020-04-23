@@ -14,13 +14,15 @@ export class DatosService {
   ident: number;
   PerfilSe:string;
 
+  //se define el subject para el seguimiento
   private value = new BehaviorSubject<string>('');
+  //se crea un observable para actualizar los datos
   filterValue$ = this.value.asObservable();
-
+  //se conecta 
   get getFiltervalue(): string {
       return this.value.value;
-  }
-
+   }
+   //se pasa la variable
   set setFiltervalue(value: string ) {
      this.value.next(value);
   }
