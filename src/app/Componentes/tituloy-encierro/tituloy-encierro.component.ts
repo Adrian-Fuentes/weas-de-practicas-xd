@@ -24,6 +24,12 @@ export class TituloyEncierroComponent implements OnInit {
    this.service.PasaValor(this.ValorDado);
   
   }
+  DatoRola(valorP:string){
+    console.log("la wea pasada es:");
+    console.log(valorP);
+    this.service.PasaLosD(valorP);
+    
+  }
   ValorDado:string;
   ClUsuario1: string;
   ClPerfil1: string;

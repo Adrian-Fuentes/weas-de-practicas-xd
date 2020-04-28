@@ -1,10 +1,11 @@
 //owo
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { DatosService } from 'src/app/services/datos.service';
 import { FormGroup , FormBuilder, Validators, FormControl} from "@angular/forms";
 import {requireCheckboxesToBeCheckedValidator} from "./require-checkboxes-to-be-checked.validator"
-
+import { debounceTime } from 'rxjs/operators';
 @Component({
+  providers:[DatosService],
   selector: 'app-buscadory-boton',
   templateUrl: './buscadory-boton.component.html',
   styleUrls: ['./buscadory-boton.component.css']
@@ -113,7 +114,11 @@ submitForm(formData: any): void {
   this.form3.reset();
 }
   ngOnInit(): void {
+    this.Buscas.valueChanges.pipe( debounceTime(300) ).subscribe(value => this.PasadoD.emit(value));
   }
+   Buscas = new FormControl('');
+    @Output('Buscas') PasadoD = new EventEmitter<string>();
+
 
 }
 //h

@@ -13,7 +13,7 @@ export class DatosService {
   pasaP  = [{id: 1 , nande: 'Aprobado', Fecha: 'GDFN123654IO7', che1: true,che2: true,che3: true,che4: true,che5: true,che6: true,che7: true}];
   ident: number;
   PerfilSe:string;
-
+  _Dato:string;
   //se define el subject para el seguimiento
   private value = new BehaviorSubject<string>('');
   //se crea un observable para actualizar los datos
@@ -54,6 +54,12 @@ export class DatosService {
    return (this.ValuePasa);
   }
 
+  PasaLosD(ValorP:string){
+    console.log("si paso xd ::");
+    console.log(ValorP);
+    
+    
+  }
 
 
 

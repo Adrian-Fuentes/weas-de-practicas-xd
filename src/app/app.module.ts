@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TablaUsComponent } from './componentes/tabla-us/tabla-us.component';
 import { BotonsUComponent } from './componentes/botons-u/botons-u.component';
 import { FiltrosPipe } from './Filtrado/filtros.pipe';
+import { FiltrarPipe } from './Filtrado2/filtrar.pipe';
 
 
 
@@ -27,6 +28,7 @@ import { FiltrosPipe } from './Filtrado/filtros.pipe';
     TablaUsComponent,
     BotonsUComponent,
     FiltrosPipe,
+    FiltrarPipe,
     
    
   ],

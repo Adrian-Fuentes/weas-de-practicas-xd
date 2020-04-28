@@ -150,7 +150,6 @@ weaD:any;
   ngOnInit() {
     this.search.valueChanges.pipe( debounceTime(300) ).subscribe(value => this.searchEmitter.emit(value));
     
-    
   }
     search = new FormControl('')
 
@@ -230,6 +229,7 @@ weaD:any;
     this.Perfil = "no";
     return(this.Perfil);
   }
+  
   selectChangeHandler (event: any) {
     //update the ui
     this.Cambios = event.target.value;

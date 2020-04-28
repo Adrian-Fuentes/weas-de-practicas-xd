@@ -2,13 +2,13 @@
 <div class=" container">
 
     <div class="input-group row container"  id="xd">
-        <input type="search"  class="form-control col-sm-3"  name="" id="busca">
-    <div class="input-group-append">
-      <input class="fa  input-group-text" id="vus" type="button" value="&#xf002;">
+        <input [formControl]="Buscas" type="search"  class="form-control col-sm-3"  name="Buscas" id="busca">
+        <div class="input-group-append">
+            <input class="fa  input-group-text" id="vus" type="button" value="&#xf002;">
+        </div>
+        <a href="#"  class="fa col-sm-9" style="margin-top:1%;">&#xf0b0;</a>
+        <button  class="btn" (click)="crear()" style="float: right;">Nuevo Perfil</button>
     </div>
-    <a href="#"  class="fa col-sm-9" style="margin-top:1%;">&#xf0b0;</a>
-    <button  class="btn" (click)="crear()" style="float: right;">Nuevo Perfil</button>
-  </div>
 <!-- Creates the bootstrap modal where the image will appear -->
 
 <div [style.display]="showModall1 ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" >
