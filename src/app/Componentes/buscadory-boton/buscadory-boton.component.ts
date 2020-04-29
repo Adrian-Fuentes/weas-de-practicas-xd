@@ -5,7 +5,7 @@ import { FormGroup , FormBuilder, Validators, FormControl} from "@angular/forms"
 import {requireCheckboxesToBeCheckedValidator} from "./require-checkboxes-to-be-checked.validator"
 import { debounceTime } from 'rxjs/operators';
 @Component({
-  providers:[DatosService],
+  
   selector: 'app-buscadory-boton',
   templateUrl: './buscadory-boton.component.html',
   styleUrls: ['./buscadory-boton.component.css']
@@ -93,6 +93,7 @@ this.servicio.pasaP.push({id:this.id , nande: na.value, Fecha:'GDFN123654IO7',ch
 console.log(this.Datitos);
 this.servicio.paso();
 }
+
 crear(){
   this.showModall1 = true;
 }

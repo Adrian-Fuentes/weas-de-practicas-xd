@@ -5,8 +5,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class FiltrarPipe implements PipeTransform {
 
-  transform(value: unknown, ...args: unknown[]): unknown {
-    return null;
+  transform(value: any[], arg: string): any[] {
+    
+    if (arg == ''){return value};
+    return (value.filter(tate => tate.nande.includes(arg)) )
   }
 
 }

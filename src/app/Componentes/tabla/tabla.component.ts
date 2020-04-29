@@ -17,7 +17,7 @@ export class TablaComponent implements OnInit {
   Per1: string;
   profiles: Array<object> = [];
   datoss: any;
-  
+  ValueDado:string;
   form4:FormGroup
   grupo1:any;
   grupo2:any;
@@ -32,6 +32,7 @@ export class TablaComponent implements OnInit {
   checkeo6 = false;
   checkeo7 = false;
   constructor(public ElService: DatosService) { 
+    this.ValueDado = this.ElService._Dato;
     this.Per = "Aprobado"
     this.profiles = this.ElService.pasaP;
 
