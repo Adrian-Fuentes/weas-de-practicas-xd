@@ -31,7 +31,7 @@ bloqueo1 = false;
 bloqueo2 = false;
 bloqueo3 = false;
 bloqueo4 = false;
-
+Buscas = '';
 bloq1 = false;
 bloq2 = false;
 bloq3 = false;
@@ -115,10 +115,12 @@ submitForm(formData: any): void {
   this.form3.reset();
 }
   ngOnInit(): void {
-    this.Buscas.valueChanges.pipe( debounceTime(300) ).subscribe(value => this.PasadoD.emit(value));
+    //this.Buscas.valueChanges.pipe( debounceTime(300) ).subscribe(value => this.PasadoD.emit(value));
+    this.servicio.Cambio$.emit(this.Buscas);
+    
   }
-   Buscas = new FormControl('');
-    @Output('Buscas') PasadoD = new EventEmitter<string>();
+ 
+    
 
 
 }

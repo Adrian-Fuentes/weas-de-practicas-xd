@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -14,6 +14,10 @@ export class DatosService {
   ident: number;
   PerfilSe:string;
   _Dato= '';
+
+
+  Cambio$ = new EventEmitter<string>();
+
   //se define el subject para el seguimiento
   private value = new BehaviorSubject<string>('');
   //se crea un observable para actualizar los datos
@@ -54,13 +58,7 @@ export class DatosService {
    return (this.ValuePasa);
   }
 
-  PasaLosD(ValorP:string){
-    console.log("si paso xd ::");
-    console.log(ValorP);
-    this._Dato = ValorP;
-    return (this._Dato);
-
-  }
+  
 
 
 
