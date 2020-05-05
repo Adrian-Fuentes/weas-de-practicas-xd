@@ -127,9 +127,9 @@ export class TablaComponent implements OnInit {
   }
   ngOnInit(): void {
     this.ElService.Cambio$.subscribe(Valor => {
-      console.log("se paso el sigueinte valor para comprobar:");
+     // console.log("se paso el sigueinte valor para comprobar:");
       
-      console.log(Valor);
+      //console.log(Valor);
       
       if(Valor != ""){
         this.ValueDado = Valor;

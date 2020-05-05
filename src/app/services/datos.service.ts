@@ -15,7 +15,7 @@ export class DatosService {
   PerfilSe:string;
   _Dato= '';
 
-
+  //definimos esta variable como observable y la declaramos como EventEmiter para actualizar datos
   Cambio$ = new EventEmitter<string>();
 
   //se define el subject para el seguimiento

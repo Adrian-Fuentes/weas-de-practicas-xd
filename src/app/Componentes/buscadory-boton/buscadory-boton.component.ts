@@ -31,7 +31,7 @@ bloqueo1 = false;
 bloqueo2 = false;
 bloqueo3 = false;
 bloqueo4 = false;
-Buscas = '';
+//Buscas:any;
 bloq1 = false;
 bloq2 = false;
 bloq3 = false;
@@ -116,10 +116,18 @@ submitForm(formData: any): void {
 }
   ngOnInit(): void {
     //this.Buscas.valueChanges.pipe( debounceTime(300) ).subscribe(value => this.PasadoD.emit(value));
-    this.servicio.Cambio$.emit(this.Buscas);
-    
+    //se le declara el valueChanges(para observar los cambios que este tenga)
+    //el pipe es para el tiempo en transicion de los datos
+    //se subscribe para estar actualizado datos al Eventemiter
+    this.Buscas.valueChanges.pipe( debounceTime(300) ).subscribe(valor => {
+      //al mismo tiempo con el emit se pasa el valor subscrito.
+      this.servicio.Cambio$.emit(valor) 
+    //  console.log("se paso el:");
+     // console.log(valor);
+    });
   }
- 
+  //crear el formcontrol para guardar en variable
+ Buscas = new FormControl('');
     
 
 
