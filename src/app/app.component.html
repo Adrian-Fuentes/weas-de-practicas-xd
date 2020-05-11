@@ -66,11 +66,18 @@
                             </button>  
                         </div>
 
-                        <div (click)="Confi = !Confi">
+                        <div (click)="Confi = !Confi" [ngStyle]="{'background-color': Confi? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 <i class="fa fa-gear"></i>
                                 Configuración 
-                                <i class="material-icons" >&#xe5cc;</i>
+                                
+                                <div *ngIf="Confi == false">
+                                    <i class='fas fa-angle-right'></i>
+                                </div>    
+                                <div *ngIf="Confi == true">
+                                    <i class='fas fa-angle-down'></i>
+                                </div>  
+                                
                             </button>  
                             
                         </div>
