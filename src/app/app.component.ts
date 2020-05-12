@@ -10,5 +10,5 @@ export class AppComponent {
   showFiller = false;
   Confi = false;
   oculta = false;
-  
+  Clientes = false;
 }

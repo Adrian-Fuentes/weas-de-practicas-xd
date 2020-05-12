@@ -5,7 +5,7 @@
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="example-sidenav-content" >
                 <!--Boton que despliega el sidebar-->
-                <button type="button" mat-button (click)="drawer.toggle()" (click)="oculta = !oculta"  *ngIf="oculta == false" class="material-icons">
+                <button type="button" mat-button (click)="drawer.toggle()" (click)="oculta = !oculta"  *ngIf="oculta == false" style="color:white;font-size: 170%" class="material-icons btn">
                   &#xe5d2;
                 </button>
               </div>
@@ -18,7 +18,7 @@
             <mat-drawer #drawer class="example-sidenav" mode="side" style="border: none;background-color:#DEE1E1; width: 20%;">
                 <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
                     <div class="example-sidenav-content" >
-                        <button type="button" mat-button (click)="drawer.toggle()" (click)="oculta = !oculta" class="material-icons">
+                        <button type="button" mat-button (click)="drawer.toggle()" (click)="oculta = !oculta" style="color:white;font-size: 170%" class="material-icons btn">
                           &#xe5d2;
                         </button>
                       </div>
@@ -26,30 +26,30 @@
                     </nav>
                     <p></p>
                   
-                
+<!--Tesorería ----------------------------------------------------------------------------------------------------------------->                
                 <div style="font-size: 130%;margin:1%" >
                         <div>
                             <button class="btn">
                                 <i class='fas fa-money-bill-wave'></i>
-                                   Tesoreria
+                                   Tesorería
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button>  
                         </div>
-
+<!--Disposiciones ------------------------------------------------------------------------------------------------------------>
                         <div>
                             <button class="btn">
                                 Dispocisiones 
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button>  
                         </div>
-
+<!--Gestión ------------------------------------------------------------------------------------------------------------------->
                         <div>
                             <button class="btn">
                                 Gestión de Líneas 
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button>  
                         </div>
-
+<!--Creditos------------------------------------------------------------------------------------------------------------------->
                         <div>
                             <button class="btn">
                                 <i class="fa fa-life-bouy"></i>
@@ -57,26 +57,42 @@
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button> 
                         </div>
-
-                        <div>
-                            <button class="btn">
+<!--Clientes--------------------------------------------------------------------------------------------------------------------->
+                        <div (click)='Clientes= !Clientes' [ngStyle]="{'background-color': Clientes? 'white' : '#DEE1E1'}">
+                            <button class="btn" >
                                 <i class="fa fa-user"></i>
                                    Clientes
-                                <i class="material-icons" >&#xe5cc;</i>
+                                
+                                   <i *ngIf="Clientes == false" class='fas fa-angle-right'></i>
+                                
+                               
+                                   <i *ngIf="Clientes == true" class='fas fa-angle-down'></i>
+                               
                             </button>  
                         </div>
+                        <div *ngIf="Clientes" class="bg-light text-center">
 
+                            
+                            <button  class="btn" mat-raised-button>
+                                Clientes 1
+                            </button>
+                            <br>
+                            <button  class="btn" mat-raised-button>
+                                Clientes 2
+                            </button>
+                        </div>
+<!--Configuracion ---------------------------------------------------------------------------------------------------------------->
                         <div (click)="Confi = !Confi" [ngStyle]="{'background-color': Confi? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 <i class="fa fa-gear"></i>
                                 Configuración 
                                 
-                                <div *ngIf="Confi == false">
-                                    <i class='fas fa-angle-right'></i>
-                                </div>    
-                                <div *ngIf="Confi == true">
-                                    <i class='fas fa-angle-down'></i>
-                                </div>  
+                                
+                                    <i *ngIf="Confi == false" class='fas fa-angle-right'></i>
+                                
+                               
+                                    <i *ngIf="Confi == true" class='fas fa-angle-down'></i>
+                                
                                 
                             </button>  
                             
