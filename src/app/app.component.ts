@@ -11,4 +11,8 @@ export class AppComponent {
   Confi = false;
   oculta = false;
   Clientes = false;
+  Credito = false;
+  Teso = false;
+  Dispo = false;
+  Gestion = false;
 }

@@ -27,35 +27,78 @@
                     <p></p>
                   
 <!--Tesorería ----------------------------------------------------------------------------------------------------------------->                
-                <div style="font-size: 130%;margin:1%" >
-                        <div>
+               
+                        <div (click)='Teso= !Teso' [ngStyle]="{'background-color': Teso? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 <i class='fas fa-money-bill-wave'></i>
                                    Tesorería
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button>  
                         </div>
+                        <div *ngIf="Teso" class="bg-light text-center">
+
+                            <button  class="btn" mat-raised-button>
+                                Tesorería 1
+                            </button>
+                            <br>
+                            <button  class="btn" mat-raised-button>
+                                Tesorería 2
+                            </button>
+                        </div>
 <!--Disposiciones ------------------------------------------------------------------------------------------------------------>
-                        <div>
+                        <div (click)='Dispo= !Dispo' [ngStyle]="{'background-color': Dispo? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 Dispocisiones 
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button>  
                         </div>
+                        <div *ngIf="Dispo" class="bg-light text-center">
+
+                            
+                            <button  class="btn" mat-raised-button>
+                                Disposición 1
+                            </button>
+                            <br>
+                            <button  class="btn" mat-raised-button>
+                                Disposición 2
+                            </button>
+                        </div>
 <!--Gestión ------------------------------------------------------------------------------------------------------------------->
-                        <div>
+                        <div (click)='Gestion= !Gestion' [ngStyle]="{'background-color': Gestion? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 Gestión de Líneas 
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button>  
                         </div>
+                        <div *ngIf="Gestion" class="bg-light text-center">
+
+                            
+                            <button  class="btn" mat-raised-button>
+                                Solicitud de líneas de crédito
+                            </button>
+                            <br>
+                            <button  class="btn" mat-raised-button>
+                                Líneas de crédito activas
+                            </button>
+                        </div>
 <!--Creditos------------------------------------------------------------------------------------------------------------------->
-                        <div>
+                        <div (click)='Credito= !Credito' [ngStyle]="{'background-color': Credito? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 <i class="fa fa-life-bouy"></i>
                                    Créditos
                                 <i class="material-icons" >&#xe5cc;</i>
                             </button> 
+                        </div>
+                        <div *ngIf="Credito" class="bg-light text-center">
+
+                            
+                            <button  class="btn" mat-raised-button>
+                                Creditos 1
+                            </button>
+                            <br>
+                            <button  class="btn" mat-raised-button>
+                                Creditos 2
+                            </button>
                         </div>
 <!--Clientes--------------------------------------------------------------------------------------------------------------------->
                         <div (click)='Clientes= !Clientes' [ngStyle]="{'background-color': Clientes? 'white' : '#DEE1E1'}">
@@ -107,7 +150,7 @@
                                 Gestion de Usuarios
                             </button>
                         </div>
-                </div>
+                
                 
                 
             </mat-drawer>
