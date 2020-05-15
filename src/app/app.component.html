@@ -28,7 +28,7 @@
                   
 <!--Tesorería ----------------------------------------------------------------------------------------------------------------->                
                
-                        <div (click)='Teso= !Teso' [ngStyle]="{'background-color': Teso? 'white' : '#DEE1E1'}">
+                        <div (click)='Teso= !Teso' (click)="ActivaTeso()" [ngStyle]="{'background-color': Teso? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 <i class='fas fa-money-bill-wave'></i>
                                    Tesorería
@@ -46,7 +46,7 @@
                             </button>
                         </div>
 <!--Disposiciones ------------------------------------------------------------------------------------------------------------>
-                        <div (click)='Dispo= !Dispo' [ngStyle]="{'background-color': Dispo? 'white' : '#DEE1E1'}">
+                        <div (click)='Dispo= !Dispo' (click)="ActivaDispo()" [ngStyle]="{'background-color': Dispo? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 Dispocisiones 
                                 <i class="material-icons" >&#xe5cc;</i>
@@ -64,7 +64,7 @@
                             </button>
                         </div>
 <!--Gestión ------------------------------------------------------------------------------------------------------------------->
-                        <div (click)='Gestion= !Gestion' [ngStyle]="{'background-color': Gestion? 'white' : '#DEE1E1'}">
+                        <div (click)='Gestion= !Gestion' (click)="ActivaGestion()" [ngStyle]="{'background-color': Gestion? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 Gestión de Líneas 
                                 <i class="material-icons" >&#xe5cc;</i>
@@ -82,7 +82,7 @@
                             </button>
                         </div>
 <!--Creditos------------------------------------------------------------------------------------------------------------------->
-                        <div (click)='Credito= !Credito' [ngStyle]="{'background-color': Credito? 'white' : '#DEE1E1'}">
+                        <div (click)='Credito= !Credito' (click)="ActivaCredito()" [ngStyle]="{'background-color': Credito? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 <i class="fa fa-life-bouy"></i>
                                    Créditos
@@ -101,7 +101,7 @@
                             </button>
                         </div>
 <!--Clientes--------------------------------------------------------------------------------------------------------------------->
-                        <div (click)='Clientes= !Clientes' [ngStyle]="{'background-color': Clientes? 'white' : '#DEE1E1'}">
+                        <div (click)='Clientes= !Clientes' (click)="ActivaClientes()" [ngStyle]="{'background-color': Clientes? 'white' : '#DEE1E1'}">
                             <button class="btn" >
                                 <i class="fa fa-user"></i>
                                    Clientes
@@ -125,7 +125,7 @@
                             </button>
                         </div>
 <!--Configuracion ---------------------------------------------------------------------------------------------------------------->
-                        <div (click)="Confi = !Confi" [ngStyle]="{'background-color': Confi? 'white' : '#DEE1E1'}">
+                        <div (click)="Confi = !Confi" (click)="ActivaConfig()"  [ngStyle]="{'background-color': Confi? 'white' : '#DEE1E1'}">
                             <button class="btn">
                                 <i class="fa fa-gear"></i>
                                 Configuración 
@@ -146,7 +146,7 @@
                             <button  class="btn" mat-raised-button>
                                 Gestion de Fondeadres
                             </button>
-                            <button (click)="showFiller = !showFiller" class="btn" mat-raised-button>
+                            <button (click)="MuestraContenido = !MuestraContenido" class="btn" mat-raised-button>
                                 Gestion de Usuarios
                             </button>
                         </div>
@@ -157,11 +157,11 @@
       
         
         
-        <div class="jumbotron text-center" style="height: 500px;" *ngIf="!showFiller">
+        <div class="jumbotron text-center" style="height: 500px;" *ngIf="!MuestraContenido">
             <h1 class="display-1" > Bienvenido </h1>
         </div>
         <!--Se activa el componente-->
-        <app-tituloy-encierro *ngIf="showFiller"></app-tituloy-encierro>
+        <app-tituloy-encierro *ngIf="MuestraContenido"></app-tituloy-encierro>
         <router-outlet></router-outlet>
         
     </mat-drawer-container>
